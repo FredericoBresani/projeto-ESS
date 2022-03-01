@@ -23,5 +23,7 @@ Scenario: Contato com os responsáveis
     And: usuário seleciona na opção “Selecione o pacote” o “Pacote 1”
     And: aparece uma “Resposta Automática” informando a situação do determinado pacote 
 
-
-Modificação letra "b"
+Scenario: Verificar recebimento do pacote
+    Given: Usuário acessa a página de rastreamento usando suas credenciais cadastradas
+    When: Usuário verifica o pacote 1 foi entregue
+    Then: Usuário confirma o recebimento do pacote 1
