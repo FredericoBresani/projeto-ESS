@@ -26,3 +26,9 @@ Given Que estou em 'tela de visualização de rastreio'
 When tento visualizar dados sobre a localização
 And nao consigo
 Then é exibida uma mensagem de erro na tela
+
+Scenario: Erro no historico de rastreio
+Given Que estou em 'tela de visualização de rastreio'
+When Clico no botão 'historico de ratreio'
+And não é possivel visualizar os dados
+Then é exibido uma mensagem de erro na tela
