@@ -13,7 +13,7 @@ Scenario: Logout o usuário
     When clico na opção logout
     Then saiu do sistema
 
-Scenario: Verificação o usuário
+Scenario: Verificação do usuário
 	Given estou logado 
     And tento acessar uma funcionalidade
     When o sitema verifica a autenticação
