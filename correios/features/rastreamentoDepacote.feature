@@ -1,7 +1,7 @@
 Scenario: Visualização de pacote
 Given que estou logada como ‘julia matins’
 And estou na tela ‘tela de visualização de rastreio’
-When    visualiso a divisão dos pedidos ‘enviado’ ‘recebendo’
+When visualiso a divisão dos pedidos ‘enviado’ ‘recebendo’
 Then consigo vem informaçoes dos meu itens
 
 Scenario: Localização de depósitos
@@ -20,3 +20,9 @@ When quero tem permisão para alguma dado
 Then é necessario que esteja logada
 
 mudandça teste diff
+
+Scenario: Erro no rastreio
+Given Que estou em 'tela de visualização de rastreio'
+When tento visualizar dados sobre a localização
+And nao consigo
+Then é exibida uma mensagem de erro na tela
