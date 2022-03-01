@@ -16,7 +16,8 @@ Then sou direcionado à uma tela com todos os pedidos já recebidos e enviados
 
 Scenario: Limitar acesso de usuário
 Given que estou na tela ‘tela de visualização de rastreio’
-When quero tem permisão para alguma dado
+When quero ter permisão para algum dado
 Then é necessario que esteja logada
+And tenha realizado algum envio ou esteja esperendo algo
 
 mudandça teste diff
