@@ -32,4 +32,4 @@ Scenario: Erro no historico de rastreio
 Given Que estou em 'tela de visualização de rastreio'
 When Clico no botão 'historico de ratreio'
 And não é possivel visualizar os dados
-Then é exibido uma mensagem
+Then é exibido uma mensagem (Main)
