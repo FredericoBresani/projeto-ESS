@@ -60,11 +60,3 @@ Scenario: Cadastrar pedido
   Then a aplicação não processa o pedido
   And eu continuo na mesma página de cadastro
   And a aplicação indica que um dos campos não foi preenchido
-
-Scenario: Cadastrar pedido
-  Given que eu estou na página “cadastro de pedido”
-  And os campos do cadastro, "número do cartão”, “nome”, “código de segurança do cartão”, “CPF”, “CEP” e etc não estão todos preenchidos
-  When eu preencho todos os campos necessários, menos o “código de segurança do cartão” e aperto em “confirmar pedido”
-  Then a aplicação não processa o pedido
-  And eu continuo na mesma página de cadastro
-  And a aplicação indica que um dos campos não foi preenchido
