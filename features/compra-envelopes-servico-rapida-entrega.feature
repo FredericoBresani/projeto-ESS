@@ -51,3 +51,4 @@ Scenario: Cadastrar pedido
   And eu não estou logado na plataforma
   When eu tento preencher os campos de cadastro
   Then aplicação me redireciona para a página de login
+  Then eu posso realizar o login na plataforma ou criar uma conta
