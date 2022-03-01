@@ -27,4 +27,5 @@ Scenario: Contato com os responsáveis
 Scenario: Verificar recebimento do pacote
     Given: Usuário acessa a página de rastreamento usando suas credenciais cadastradas
     When: Usuário verifica o pacote 1 foi entregue
-    Then: Usuário confirma o recebimento do pacote 1
+    Then: Usuário confirma o recebimento do - pacote 1 -
+
