@@ -1,4 +1,4 @@
-Feature: Autenticacao do Usuarios
+Feature: Autenticacao do Usuario
     As usuario do sistema
     I want to autenticar no sistema
    
@@ -26,4 +26,9 @@ Scenario: Autenticação inválida ou expirada
     Then sou redirecionado para a tela de login
     And e sou solicitado a preencher novamente os dados
 
-    
+Scenario: Dados do Login errados
+    Given estou na tela de login
+    And preencho os campos de login
+    When submeto as informações 
+    Then informações de login erradas
+
