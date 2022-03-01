@@ -24,3 +24,6 @@ Scenario: Autenticação inválida ou expirada
     And tento acessar uma funcionalidade
     When o sitema verifica a autenticação
     Then sou redirecionado para a tela de login
+    And e sou solicitado a preencher novamente os dados
+
+    
