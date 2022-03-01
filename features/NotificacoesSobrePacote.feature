@@ -21,7 +21,8 @@ Scenario: Contato com os responsáveis
     And: usuário vai na parte inferior esquerda em “Selecione o tipo de atendimento”
     Then: usuário escolhe o tipo de atendimento, “Reclamação”
     And: usuário seleciona na opção “Selecione o pacote” o “Pacote 1”
-    And: aparece uma “Resposta Automática” informando a situação do determinado pacote 
+    And: aparece uma “Resposta Automática” informando a situação do determinado pacote
+    And: usuário verifica a resposta automática e aguarda 
 
 
 Modificação letra "b"
