@@ -26,7 +26,7 @@ Scenario: Autenticação inválida ou expirada
     Then sou redirecionado para a tela de login
     And e sou solicitado a preencher novamente os dados
 
-Scenario: Dado de Login errado
+Scenario: Dados de Login errados
     Given estou na tela de login
     And preencho os campos de login
     When submeto as informações 
