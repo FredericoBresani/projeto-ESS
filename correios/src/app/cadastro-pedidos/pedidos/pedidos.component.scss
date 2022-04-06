@@ -1,0 +1,17 @@
+@import '../../../styles.scss';
+
+.pedidos {
+  .pedido {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+    .pedido-info {
+      display: flex;
+      justify-content: space-between;
+      width: 250px;
+      border: 1px solid $blue-main;
+    }
+  }
+}

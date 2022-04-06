@@ -1,0 +1,45 @@
+.navbar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 1rem 0 1rem;
+  margin: 0;
+  background-color: rgb(80, 80, 231);
+  color: white;
+  img {
+    cursor: pointer;
+  }
+  .menu-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 5rem;
+    img {
+      width: 30px;
+    }
+    .menu {
+      position: relative;
+      .navoptions {
+        position: absolute;
+        background-color: grey;
+        right: 0;
+        width: 10rem;
+        display: none;
+        color: black;
+        ul {
+          list-style: none;
+          height: 100%;
+          li {
+            cursor: pointer;
+            background-color: white;
+            margin: 1px;
+          }
+        }
+      }
+      .navoptions-show {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
