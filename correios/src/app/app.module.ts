@@ -7,10 +7,12 @@ import { NavBarModule } from './nav-bar/nav-bar.module';
 import { CadastroPedidosModule } from './cadastro-pedidos/cadastro-pedidos.module';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+import { RastreamentoPacoteComponent } from './rastreio-pacote/rastreamento-pacote/rastreamento-pacote.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RastreamentoPacoteComponent
   ],
   imports: [
     BrowserModule,
