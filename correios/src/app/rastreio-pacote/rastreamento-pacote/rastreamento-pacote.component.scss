@@ -1,0 +1,30 @@
+.section-rastreio{
+    display: flex;
+}
+.subsection-rastreio{
+    width: 50%;
+    height: 90vh;
+    background-color: #fcfcfc;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    border-left: 2px solid #5050e7;
+}
+progress{
+    position: relative;
+    width: 60vh;
+}
+.info-rastreio{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1rem;
+}
+.info-rastreio div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
