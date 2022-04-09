@@ -15,6 +15,7 @@ export class CadastroComponent implements OnInit {
   public options = [{ value: 'normal', text: 'Entrega Normal' }, { value: 'rapida', text: 'Entrega Rapida'}];
 
   public price = 0;
+  public data ?: Date;
 
   constructor(private readonly formBuilder: FormBuilder, private readonly cadastroClient: CadastroClient, private readonly router: Router) { }
 
@@ -58,6 +59,15 @@ export class CadastroComponent implements OnInit {
       preco_total: this.price.toFixed(2),
     });
   }
+  somarData():void{
+    const opcao = this.cadastroForm?.controls['opcoes'].value;
+    if (opcao === 'rapida'){
+      this.data = (this.cadastroForm?.controls['tempo_entrega'].value + 5);
+    }else if (opcao === 'normal'){
+      this.data = (this.cadastroForm?.controls['tempo_entrega'].value + 30);
+    }
+    this.cadastroForm?.controls['tempo_entrega'].value == this.data;
+  }
 
   setupForm(): void {
     this.cadastroForm = this.formBuilder.group({
@@ -68,6 +78,8 @@ export class CadastroComponent implements OnInit {
       cod_seguranca: [0, [Validators.min(100), Validators.max(999)]],
       cep: ['', Validators.required],
       peso_produto: [0, Validators.min(1)],
+      data_envio: [,Validators.required],
+      tempo_entrega: [,],
       endereco_entrega: ['', Validators.required],
       preco_total: [''],
       opcoes: [''],
