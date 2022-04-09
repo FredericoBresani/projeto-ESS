@@ -8,10 +8,12 @@ import { CadastroPedidosModule } from './cadastro-pedidos/cadastro-pedidos.modul
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { rastreamentoPacoteModule } from './rastreio-pacote/rastreio-pacote.module';
+import { NotificacoesComponent } from './notificacao/notificacoes/notificacoes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NotificacoesComponent,
   ],
   imports: [
     BrowserModule,
