@@ -3,12 +3,16 @@
         <h2>Enviando</h2>
         <div>
             <p>Linha do tempo</p>
-            <progress value="32" max="100"></progress><br>
-        </div>
-        <div class="info-rastreio">
             <div>
+                <div class="ckechpoint">
+                    <div class="cicle-point"></div> <label class="nome_point_checkPoint"></label>
+                </div>    
+            </div>
+        </div>
+        <div class="info-rastreio" >
+            <div *ngFor="let pedido of pedidos">
                 <h3>Postagem</h3>
-                <label>Data:</label><br>
+                <label>Data: {{pedido.cpf}}</label><br>
                 <label>Horario:</label><br>
             </div>
             <div>
@@ -18,11 +22,16 @@
             </div>
         </div>
     </div>
+    <!-- 
     <div class="subsection-rastreio">
         <h2>Recebendo</h2>
         <div>
             <p>Linha do tempo</p>
-            <progress value="32" max="100"></progress>
+            <div>
+                <div class="ckechpoint">
+                    <div class="cicle-point"></div> <label class="nome_point_checkPoint"></label>
+                </div>    
+            </div>
         </div>
         <div class="info-rastreio">
             <div>
@@ -38,3 +47,4 @@
         </div>
     </div>
 </section>
+    -->
