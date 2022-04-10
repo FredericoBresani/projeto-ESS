@@ -29,10 +29,6 @@
     <input type="number" formControlName="peso_produto" (keyup)="updatePesoPrice($event)">
   </div>
   <div class="formElement">
-    <label>Data de envio</label>
-    <input type="Date" formControlName="data_envio">
-  </div>
-  <div class="formElement">
     <label>Endereço de Entrega</label>
     <input type="text" formControlName="endereco_entrega">
   </div>
@@ -41,6 +37,10 @@
     <select formControlName="opcoes" (change)="updateOpcaoPrice()">
       <option *ngFor="let option of options" [value]="option.value" (click)="updateOpcaoPrice()">{{ option.text }}</option>
     </select>
+  </div>
+  <div class="formElement">
+    <label>Data de envio</label>
+    <input type="Date" formControlName="data_envio" (change)="somarData()">
   </div>
   <div class="formElement">
     <label>Preço Total</label>

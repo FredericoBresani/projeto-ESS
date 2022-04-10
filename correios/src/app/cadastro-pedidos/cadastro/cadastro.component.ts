@@ -15,8 +15,8 @@ export class CadastroComponent implements OnInit {
   public options = [{ value: 'normal', text: 'Entrega Normal' }, { value: 'rapida', text: 'Entrega Rapida'}];
 
   public price = 0;
-  public data: any;
-  public data2: any;
+  public data = new Date();
+  public data2 = new Date();
 
   constructor(private readonly formBuilder: FormBuilder, private readonly cadastroClient: CadastroClient, private readonly router: Router) { }
 
@@ -63,14 +63,16 @@ export class CadastroComponent implements OnInit {
   somarData():void{
     const opcao = this.cadastroForm?.controls['opcoes'].value;
     if (opcao === 'rapida'){
-      this.data = (this.cadastroForm?.controls['tempo_entrega'].value);
-      this.data2.setDate(this.data.getDate() + 5);
-    }else if (opcao === 'normal'){
-      this.data = (this.cadastroForm?.controls['tempo_entrega'].value);
-      this.data2.setDate(this.data.getDate() + 20);
+      this.data = new Date(this.cadastroForm?.controls['data_envio'].value);
+      this.data2.setDate(this.data.getDate() + 5); //5 dias para entrega
+    }
+    else if (opcao === 'normal'){
+      this.data = new Date(this.cadastroForm?.controls['data_envio'].value);
+      this.data2.setDate(this.data.getDate() + 20); //20 dias para entrega
     }
     this.cadastroForm?.patchValue({
-      tempo_entrega: this.data2,
+      data_envio: this.data,
+      tempo_entrega: this.data2
     });
   }
 
