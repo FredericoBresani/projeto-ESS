@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { CadastroClient } from 'src/app/shared/client/cadastro.client';
-import { Router } from '@angular/router';
+import { Data, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -15,7 +15,8 @@ export class CadastroComponent implements OnInit {
   public options = [{ value: 'normal', text: 'Entrega Normal' }, { value: 'rapida', text: 'Entrega Rapida'}];
 
   public price = 0;
-  public data ?: Date;
+  public data: any;
+  public data2: any;
 
   constructor(private readonly formBuilder: FormBuilder, private readonly cadastroClient: CadastroClient, private readonly router: Router) { }
 
@@ -62,11 +63,15 @@ export class CadastroComponent implements OnInit {
   somarData():void{
     const opcao = this.cadastroForm?.controls['opcoes'].value;
     if (opcao === 'rapida'){
-      this.data = (this.cadastroForm?.controls['tempo_entrega'].value + 5);
+      this.data = (this.cadastroForm?.controls['tempo_entrega'].value);
+      this.data2.setDate(this.data.getDate() + 5);
     }else if (opcao === 'normal'){
-      this.data = (this.cadastroForm?.controls['tempo_entrega'].value + 30);
+      this.data = (this.cadastroForm?.controls['tempo_entrega'].value);
+      this.data2.setDate(this.data.getDate() + 20);
     }
-    this.cadastroForm?.controls['tempo_entrega'].value == this.data;
+    this.cadastroForm?.patchValue({
+      tempo_entrega: this.data2,
+    });
   }
 
   setupForm(): void {
