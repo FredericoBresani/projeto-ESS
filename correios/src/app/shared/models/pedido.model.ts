@@ -15,6 +15,10 @@ export interface Pedido {
 
   endero_entrega: string;
 
+  data_envio: Date;
+
+  tempo_entrega: number;
+
   preco_total: number;
 
   opcoes?: string[];

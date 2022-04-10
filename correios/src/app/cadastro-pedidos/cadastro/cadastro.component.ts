@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { CadastroClient } from 'src/app/shared/client/cadastro.client';
-import { Router } from '@angular/router';
+import { Data, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -15,6 +15,8 @@ export class CadastroComponent implements OnInit {
   public options = [{ value: 'normal', text: 'Entrega Normal' }, { value: 'rapida', text: 'Entrega Rapida'}];
 
   public price = 0;
+  public data = new Date();
+  public data2 = new Date();
 
   constructor(private readonly formBuilder: FormBuilder, private readonly cadastroClient: CadastroClient, private readonly router: Router) { }
 
@@ -58,6 +60,21 @@ export class CadastroComponent implements OnInit {
       preco_total: this.price.toFixed(2),
     });
   }
+  somarData():void{
+    const opcao = this.cadastroForm?.controls['opcoes'].value;
+    if (opcao === 'rapida'){
+      this.data = new Date(this.cadastroForm?.controls['data_envio'].value);
+      this.data2.setDate(this.data.getDate() + 5); //5 dias para entrega
+    }
+    else if (opcao === 'normal'){
+      this.data = new Date(this.cadastroForm?.controls['data_envio'].value);
+      this.data2.setDate(this.data.getDate() + 20); //20 dias para entrega
+    }
+    this.cadastroForm?.patchValue({
+      data_envio: this.data,
+      tempo_entrega: this.data2
+    });
+  }
 
   setupForm(): void {
     this.cadastroForm = this.formBuilder.group({
@@ -68,6 +85,8 @@ export class CadastroComponent implements OnInit {
       cod_seguranca: [0, [Validators.min(100), Validators.max(999)]],
       cep: ['', Validators.required],
       peso_produto: [0, Validators.min(1)],
+      data_envio: [,Validators.required],
+      tempo_entrega: [,],
       endereco_entrega: ['', Validators.required],
       preco_total: [''],
       opcoes: [''],
