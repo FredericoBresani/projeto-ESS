@@ -13,7 +13,7 @@ export interface Pedido {
 
   peso_produto: number;
 
-  endero_entrega: string;
+  endereco_entrega: string;
 
   data_envio: Date;
 
@@ -22,4 +22,6 @@ export interface Pedido {
   preco_total: number;
 
   opcoes?: string[];
+
+  estado_atual:string[];
 }

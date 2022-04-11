@@ -45,4 +45,28 @@ export class RequestService {
       subscriber.next(this.pedidos);
     })
   }
+
+  put(endPoint: string, pedido: Pedido): Observable<Pedido[]> {
+    const index = this.pedidos.indexOf(pedido);
+    if (index === -1) {
+      return new Observable(subscriber => {
+        subscriber.error();
+      })
+    }
+    let remaining: Pedido[] = [];
+    let indexRemaining = 0;
+    this.pedidos.forEach(element => {
+      if (indexRemaining !== index) {
+        remaining.push(element);
+      }
+      else{
+        remaining.push(pedido);
+      }
+      indexRemaining++;
+    });
+    this.pedidos = remaining;
+    return new Observable(subscriber => {
+      subscriber.next(this.pedidos);
+    })
+  }
 }

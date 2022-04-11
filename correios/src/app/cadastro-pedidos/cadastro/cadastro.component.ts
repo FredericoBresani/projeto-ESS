@@ -90,6 +90,7 @@ export class CadastroComponent implements OnInit {
       endereco_entrega: ['', Validators.required],
       preco_total: [''],
       opcoes: [''],
+      estado_atual:[['DF']],
     });
     this.cadastroForm.controls['preco_total'].disable();
   }
