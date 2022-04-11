@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarComponent implements OnInit {
 
-  public options = [{path: 'correios/cadastrar-pedido', text: 'Cadastrar Pedido'}, {path: 'correios/pedidos', text: 'Pedidos'}, {path: 'correios/rastreamento-pacote', text: 'Rastreamento de pacotes'}]
+  public options = [{path: 'correios/cadastrar-pedido', text: 'Cadastrar Pedido'}, {path: 'correios/pedidos', text: 'Pedidos'}, 
+  {path: 'correios/rastreamento-pacote', text: 'Rastreamento de pacotes'}, {path: 'correios/notificacoes', text: 'Notificação do Pacote'}]
 
   constructor() { }
 

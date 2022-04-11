@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-notificacoes',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificacoesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
+  openDialog() {
+    this.dialog.open(DialogElements);
+  }
   ngOnInit(): void {
   }
 
 }
+
+@Component({
+  selector: 'dialog-elements',
+  templateUrl: 'notificacoes.dialog.html',
+})
+export class DialogElements {}

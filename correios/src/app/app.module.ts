@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarModule } from './nav-bar/nav-bar.module';
@@ -8,12 +8,12 @@ import { CadastroPedidosModule } from './cadastro-pedidos/cadastro-pedidos.modul
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { rastreamentoPacoteModule } from './rastreio-pacote/rastreio-pacote.module';
-import { NotificacoesComponent } from './notificacao/notificacoes/notificacoes.component';
+import { notificacaoPacoteModule } from './notificacao/notificacao-pacote.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotificacoesComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +22,10 @@ import { NotificacoesComponent } from './notificacao/notificacoes/notificacoes.c
     CadastroPedidosModule,
     SharedModule,
     HttpClientModule,
-    rastreamentoPacoteModule
+    rastreamentoPacoteModule,
+    BrowserAnimationsModule,
+    notificacaoPacoteModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
