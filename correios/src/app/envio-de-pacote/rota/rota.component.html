@@ -1,0 +1,12 @@
+<div >
+  <!-- nome do cliente produto data e end -->
+  <div class="rota" *ngFor="let pedido of pedidos">
+    <div class="rota">|{{pedido.nome}} | {{pedido.nome_pedido}} | Rota: </div>
+    <div class="rota" *ngFor="let pos of pedido.estado_atual">
+      <div>{{pos}} -> </div>
+    </div>
+    <button (click)="atualizarCaminhoPedido(pedido)">Atualizar Caminho</button>
+    <br>
+  </div>
+
+</div>
