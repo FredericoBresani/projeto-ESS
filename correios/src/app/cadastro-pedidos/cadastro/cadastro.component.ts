@@ -71,7 +71,7 @@ export class CadastroComponent implements OnInit {
       this.data2.setDate(this.data.getDate() + 20); //20 dias para entrega
     }
     this.cadastroForm?.patchValue({
-      data_envio: this.data,
+      Data_formatada: this.data,
       tempo_entrega: this.data2
     });
   }
@@ -86,6 +86,7 @@ export class CadastroComponent implements OnInit {
       cep: ['', Validators.required],
       peso_produto: [0, Validators.min(1)],
       data_envio: [,Validators.required],
+      Data_formatada: [,],
       tempo_entrega: [,],
       endereco_entrega: ['', Validators.required],
       preco_total: [''],
