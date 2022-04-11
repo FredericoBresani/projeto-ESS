@@ -12,7 +12,7 @@ import { NotificacoesComponent } from './notificacoes/notificacoes.component';
       ReactiveFormsModule,
     ],
     providers: [],
-    
+
   })
 
 export class notificacaoPacoteModule {}
