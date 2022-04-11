@@ -5,20 +5,21 @@
             <div class="subsection-rastreio-pedidos-pedido" *ngFor="let pedido of pedidos">
                 <div>
                     <p>Linha do tempo</p>
-                    <div>
-                        <div class="ckechpoint">
-                            <div class="cicle-point"></div> <label class="nome_point_checkPoint"></label>
+                    <div style="display:flex; gap: 1rem;" >
+                        <div class="ckechpoint" *ngFor="let estado of pedido.estado_atual">
+                            <div class="cicle-point"></div> 
+                            <label class="nome_point_checkPoint" > {{estado}}</label>
                         </div>    
                     </div>
                 </div>
                 <div class="info-rastreio" >
                     <div>
-                        <h3>Postagem</h3>
+                        <h3><strong>Postagem</strong></h3>
                         <label>Pedido: {{pedido.nome_pedido}}</label>
-                        <label>Data: {{pedido.data_envio}}</label>
+                        <label>Data: {{pedido.Data_formatada}}</label>
                     </div>
                     <div>
-                        <h3>Previsão de recebimento</h3>
+                        <h3><strong>Previsão de recebimento</strong></h3>
                         <label>Data:{{pedido.tempo_entrega}}</label>
                     </div>
                 </div>
