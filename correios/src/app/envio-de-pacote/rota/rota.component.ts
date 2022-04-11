@@ -28,7 +28,7 @@ export class RotaComponent implements OnInit {
   }
 
   atualizarCaminhoPedido( pedido: Pedido): void {
-    console.log(pedido.endereco_entrega);
+
     if(pedido.endereco_entrega=="PE" ){
       if(pedido.estado_atual[pedido.estado_atual.length-1]=="DF"){
         pedido.estado_atual.push("GO");
