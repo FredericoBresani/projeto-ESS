@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarComponent implements OnInit {
 
-  public options = [{path: 'correios/cadastrar-pedido', text: 'Cadastrar Pedido'}, {path: 'correios/pedidos', text: 'Pedidos'}]
+  public options = [{path: 'correios/cadastrar-pedido', text: 'Cadastrar Pedido'}, {path: 'correios/pedidos', text: 'Pedidos'}, {path: 'correios/envio-de-pacote', text: 'Entregas'}, {path: 'correios/rota', text: 'Rotas'}]
 
   constructor() { }
 
