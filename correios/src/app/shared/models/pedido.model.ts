@@ -17,7 +17,9 @@ export interface Pedido {
 
   data_envio: Date;
 
-  tempo_entrega: number;
+  Data_formatada: Date;
+
+  tempo_entrega: Date;
 
   preco_total: number;
 
