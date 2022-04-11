@@ -7,10 +7,12 @@ import { NavBarModule } from './nav-bar/nav-bar.module';
 import { CadastroPedidosModule } from './cadastro-pedidos/cadastro-pedidos.module';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+import { EnviosComponent } from './envio-de-pacote/envios/envios.component';
+import { EnvioDePacotesModule } from './envio-de-pacote/envio-de-pacotes.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavBarModule,
     CadastroPedidosModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    EnvioDePacotesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
