@@ -4,6 +4,8 @@ import { CadastroComponent } from './cadastro-pedidos/cadastro/cadastro.componen
 import { PedidosComponent } from './cadastro-pedidos/pedidos/pedidos.component';
 import { EnviosComponent } from './envio-de-pacote/envios/envios.component';
 import { RotaComponent } from './envio-de-pacote/rota/rota.component';
+import { RastreamentoPacoteComponent } from './rastreio-pacote/rastreamento-pacote/rastreamento-pacote.component';
+import { NotificacoesComponent } from './notificacao/notificacoes/notificacoes.component';
 
 const routes: Routes = [
   {
@@ -26,7 +28,14 @@ const routes: Routes = [
     path: 'correios/rota',
     component: RotaComponent,
   },
-
+  {
+    path: 'correios/rastreamento-pacote',
+    component: RastreamentoPacoteComponent,
+  },
+  {
+    path: 'correios/notificacoes',
+    component: NotificacoesComponent,
+  }
 ];
 
 @NgModule({
