@@ -18,4 +18,8 @@ export class PedidoClient {
   cancelarPedido(pedido: Pedido): Observable<Pedido[]> {
     return this.requestService.delete(this.endPoint, pedido);
   }
+
+  atualizarPedido(pedido: Pedido): Observable<Pedido[]> {
+    return this.requestService.put(this.endPoint, pedido);
+  }
 }
