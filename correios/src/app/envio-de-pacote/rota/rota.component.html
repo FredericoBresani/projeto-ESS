@@ -3,9 +3,13 @@
   <div class="rota" *ngFor="let pedido of pedidos">
     <div class="rota">|{{pedido.nome}} | {{pedido.nome_pedido}} | Rota: </div>
     <div class="rota" *ngFor="let pos of pedido.estado_atual">
-      <div>{{pos}} -> </div>
+
+      <div *ngIf="pos==pedido.estado_atual[pedido.estado_atual.length-1]">{{pos}} </div>
+      <div *ngIf="pos!=pedido.estado_atual[pedido.estado_atual.length-1]">{{pos}} -></div>
+
     </div>
-    <button (click)="atualizarCaminhoPedido(pedido)">Atualizar Caminho</button>
+
+    <button  *ngIf="pedido.estado_atual[pedido.estado_atual.length-1]!=pedido.endereco_entrega" (click)="atualizarCaminhoPedido(pedido)">Atualizar Caminho</button>
     <br>
   </div>
 
