@@ -1,0 +1,46 @@
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+
+    <form [formGroup]="cadastroForm2"  (ngSubmit)="onSubmit()" class="form-group" >
+      <div class="form-group" >
+        <label for="inputsm" >Código Produto</label>
+        <input type="text" class="form-control"  formControlName="codigoProduto" >
+      </div>
+      <div class="form-group">
+        <label for="codigoEntregador">Código entregador</label>
+        <input type="text" class="form-control" id="codigoEntregador" formControlName="codigoEntregador" >
+      </div>
+      <button type="submit" class="btn btn-primary">add</button>
+    </form>
+  </div>
+  
+  <div class="col-md-3">
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div style="width:100%;overflow:auto; max-height:250px;">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Entregador</th>
+          <th scope="col">Produto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entrega of entregas">
+           <td>{{entrega.codigoProduto}}</td>
+           <td>{{entrega.codigoVendedor}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="fecharPedidos()" >Fechar entregas</button>
+  </div>
+  <div class="col-md-3"></div>
+</div>
