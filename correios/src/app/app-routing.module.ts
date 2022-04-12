@@ -2,12 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroComponent } from './cadastro-pedidos/cadastro/cadastro.component';
 import { PedidosComponent } from './cadastro-pedidos/pedidos/pedidos.component';
-<<<<<<< HEAD
 import { EntregaComponent } from './cadastro-entrega/entrega/entrega.component';
-=======
 import { AuthGuard } from './guards/auth-guard';
 import { LoginComponent } from './login/login/login.component';
->>>>>>> 6e3d091e6d36ae49d5e3aea836dd6145188565e0
 import { EnviosComponent } from './envio-de-pacote/envios/envios.component';
 import { RotaComponent } from './envio-de-pacote/rota/rota.component';
 import { RastreamentoPacoteComponent } from './rastreio-pacote/rastreamento-pacote/rastreamento-pacote.component';
@@ -32,6 +29,7 @@ const routes: Routes = [
 
   },{
     path: 'correios/entrega',
+    canActivate: [AuthGuard],
     component: EntregaComponent
   },
   {
