@@ -7,6 +7,7 @@ import { NavBarModule } from './nav-bar/nav-bar.module';
 import { CadastroPedidosModule } from './cadastro-pedidos/cadastro-pedidos.module';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+import { loginModule } from './login/login.module';   
 import { EnviosComponent } from './envio-de-pacote/envios/envios.component';
 import { EnvioDePacotesModule } from './envio-de-pacote/envio-de-pacotes.module';
 import { rastreamentoPacoteModule } from './rastreio-pacote/rastreio-pacote.module';
@@ -22,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     NavBarModule,
     CadastroPedidosModule,
+    loginModule,
     SharedModule,
     HttpClientModule,
     EnvioDePacotesModule,
