@@ -29,7 +29,6 @@ const routes: Routes = [
 
   },{
     path: 'correios/entrega',
-    canActivate: [AuthGuard],
     component: EntregaComponent
   },
   {
@@ -39,22 +38,18 @@ const routes: Routes = [
   {path: '**', redirectTo:''},
   {
     path: 'correios/envio-de-pacote',
-    canActivate: [AuthGuard],
     component: EnviosComponent,
   },
   {
     path: 'correios/rota',
-    canActivate: [AuthGuard],
     component: RotaComponent,
   },
   {
     path: 'correios/rastreamento-pacote',
-    canActivate: [AuthGuard],
     component: RastreamentoPacoteComponent,
   },
   {
     path: 'correios/notificacoes',
-    canActivate: [AuthGuard],
     component: NotificacoesComponent,
   }
 ];
