@@ -10,6 +10,9 @@
         <ul>
           <li *ngFor="let option of options" [routerLink]="[option.path]" (click)="showNavOptions()">{{option.text}}</li>
         </ul>
+        <ul>
+          <li (click)="logOut()" >logout</li>
+        </ul>
       </div>
     </div>
   </div>
