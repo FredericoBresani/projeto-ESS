@@ -35,7 +35,6 @@ const routes: Routes = [
     path: '',    
     component: LoginComponent,
   },
-  {path: '**', redirectTo:''},
   {
     path: 'correios/envio-de-pacote',
     component: EnviosComponent,
@@ -51,7 +50,7 @@ const routes: Routes = [
   {
     path: 'correios/notificacoes',
     component: NotificacoesComponent,
-  }
+  },
 ];
 
 @NgModule({

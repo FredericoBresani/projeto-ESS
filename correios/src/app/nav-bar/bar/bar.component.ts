@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bar',
@@ -15,7 +16,7 @@ export class BarComponent implements OnInit {
                     {path: 'correios/rastreamento-pacote', text: 'Rastreamento de pacotes'}, 
                     {path: 'correios/notificacoes', text: 'Notificação do Pacote'}];
 
-  constructor() { }
+  constructor(private readonly router: Router) { }
 
   ngOnInit(): void {
   }
@@ -26,7 +27,7 @@ export class BarComponent implements OnInit {
 
   logOut(): void{
     localStorage.clear();
-    location.reload();
+    this.router.navigate(['']);
   }
 
 }
