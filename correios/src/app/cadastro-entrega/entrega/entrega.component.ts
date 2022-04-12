@@ -22,6 +22,10 @@ export class EntregaComponent implements OnInit {
   
   }
   
+  fecharPedidos():void {
+    alert("Objetos em rota de entrega.");
+  }
+
   limparForm():void{
     this.cadastroForm2?.patchValue({
       codigoProduto : '',
