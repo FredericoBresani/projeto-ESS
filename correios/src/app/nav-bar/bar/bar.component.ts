@@ -19,4 +19,9 @@ export class BarComponent implements OnInit {
     document.querySelector('.navoptions')?.classList.toggle('navoptions-show');
   }
 
+  logOut(): void{
+    localStorage.clear();
+    location.reload();
+  }
+
 }
