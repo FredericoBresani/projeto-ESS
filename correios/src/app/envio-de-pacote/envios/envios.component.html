@@ -1,0 +1,11 @@
+<div >
+  <!-- nome do cliente produto data e end -->
+  <div class="envio" *ngFor="let pedido of pedidos">
+    <div>{{ pedido.nome }} -</div>
+    <div>{{ pedido.nome_pedido }} -</div>
+    <div> {{ pedido.endereco_entrega}}  -</div>
+    <button (click)="cancelarPedido(pedido)">Cancelar</button>
+    <br>
+  </div>
+
+</div>

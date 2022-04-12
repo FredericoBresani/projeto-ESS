@@ -4,6 +4,10 @@ import { CadastroComponent } from './cadastro-pedidos/cadastro/cadastro.componen
 import { PedidosComponent } from './cadastro-pedidos/pedidos/pedidos.component';
 import { AuthGuard } from './guards/auth-guard';
 import { LoginComponent } from './login/login/login.component';
+import { EnviosComponent } from './envio-de-pacote/envios/envios.component';
+import { RotaComponent } from './envio-de-pacote/rota/rota.component';
+import { RastreamentoPacoteComponent } from './rastreio-pacote/rastreamento-pacote/rastreamento-pacote.component';
+import { NotificacoesComponent } from './notificacao/notificacoes/notificacoes.component';
 
 const routes: Routes = [
   {
@@ -25,7 +29,27 @@ const routes: Routes = [
     path: '',    
     component: LoginComponent,
   },
-  {path: '**', redirectTo:''}
+  {path: '**', redirectTo:''},
+  {
+    path: 'correios/envio-de-pacote',
+    canActivate: [AuthGuard],
+    component: EnviosComponent,
+  },
+  {
+    path: 'correios/rota',
+    canActivate: [AuthGuard],
+    component: RotaComponent,
+  },
+  {
+    path: 'correios/rastreamento-pacote',
+    canActivate: [AuthGuard],
+    component: RastreamentoPacoteComponent,
+  },
+  {
+    path: 'correios/notificacoes',
+    canActivate: [AuthGuard],
+    component: NotificacoesComponent,
+  }
 ];
 
 @NgModule({

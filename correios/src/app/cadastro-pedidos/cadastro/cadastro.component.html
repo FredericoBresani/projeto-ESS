@@ -39,6 +39,10 @@
     </select>
   </div>
   <div class="formElement">
+    <label>Data de envio</label>
+    <input type="Date" formControlName="data_envio" (change)="somarData()">
+  </div>
+  <div class="formElement">
     <label>Preço Total</label>
     <input type="number" formControlName="preco_total">
   </div>
