@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { NotificacoesComponent } from './notificacoes/notificacoes.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { NotificacaoPacoteService } from "./notificacao-pacote.service";
 
 @NgModule({
     declarations: [
@@ -13,8 +14,7 @@ import { DialogComponent } from './dialog/dialog.component';
       CommonModule,
       ReactiveFormsModule,
     ],
-    providers: [],
-
+    providers: [NotificacaoPacoteService],
   })
 
 export class notificacaoPacoteModule {}

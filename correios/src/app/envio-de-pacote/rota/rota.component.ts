@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Pedido } from 'src/app/shared/models/pedido.model';
-import { PedidoClient } from 'src/app/shared/client/pedido.client';
 import { MatDialog } from '@angular/material/dialog';
 import {DialogComponent} from '../../notificacao/dialog/dialog.component';
 import { DialogData } from 'src/app/shared/models/dialog-data.model';
-
-
+import { CadastroPedidosService } from 'src/app/cadastro-pedidos/cadastro-pedidos.service';
 
 @Component({
   selector: 'app-rota',
@@ -19,18 +17,19 @@ export class RotaComponent implements OnInit {
 
   public dialogData?: DialogData;
 
-  constructor(private readonly pedidoClient: PedidoClient, public dialog: MatDialog) { }
+  constructor(
+    public dialog: MatDialog,
+    private readonly cadastroPedidosService: CadastroPedidosService,
+  ) { }
 
   ngOnInit(): void {
-    this.pedidoClient.getPedidos().subscribe((pedidos) => {
+    this.cadastroPedidosService.getPedidos().subscribe((pedidos) => {
       this.pedidos = pedidos;
     })
   }
 
-
-
   cancelarPedido(pedido: Pedido): void {
-    this.pedidoClient.cancelarPedido(pedido).subscribe((pedidos) => {
+    this.cadastroPedidosService.cancelarPedido(pedido).subscribe((pedidos) => {
       this.pedidos = pedidos;
     })
   }
@@ -57,7 +56,7 @@ export class RotaComponent implements OnInit {
           data: this.dialogData});
       }
     }//SO VAI PRECISAR enviar pedido no paramentro
-    this.pedidoClient.atualizarPedido(pedido).subscribe((pedidos) => {
+    this.cadastroPedidosService.atualizarPedido(pedido).subscribe((pedidos) => {
       this.pedidos = pedidos;
     })
   }

@@ -6,7 +6,7 @@ import { RequestService } from "./request.service";
 @Injectable({
   providedIn: 'root'
 })
-export class CadastroClient {
+export class CadastroPedidoClient {
 
   private endPoint = 'cadastroPedido';
   constructor(private readonly requestService: RequestService) {}

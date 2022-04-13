@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pedido } from 'src/app/shared/models/pedido.model';
-import { PedidoClient } from 'src/app/shared/client/pedido.client';
+import { EnvioDePacotesService } from '../envio-de-pacotes.service'
+import { CadastroPedidosService } from '../../cadastro-pedidos/cadastro-pedidos.service'
 
 @Component({
   selector: 'app-envios',
@@ -11,16 +12,19 @@ export class EnviosComponent implements OnInit {
 
   public pedidos?: Pedido[];
 
-  constructor(private readonly pedidoClient: PedidoClient) { }
+  constructor(
+    private readonly cadastroPedidosService: CadastroPedidosService,
+    private readonly envioDePacotesService: EnvioDePacotesService
+  ) { }
 
   ngOnInit(): void {
-    this.pedidoClient.getPedidos().subscribe((pedidos) => {
+    this.cadastroPedidosService.getPedidos().subscribe((pedidos) => {
       this.pedidos = pedidos;
     })
   }
 
   cancelarPedido(pedido: Pedido): void {
-    this.pedidoClient.cancelarPedido(pedido).subscribe((pedidos) => {
+    this.cadastroPedidosService.cancelarPedido(pedido).subscribe((pedidos) => {
       this.pedidos = pedidos;
     })
   }

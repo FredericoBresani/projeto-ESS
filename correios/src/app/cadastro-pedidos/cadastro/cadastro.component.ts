@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { CadastroClient } from 'src/app/shared/client/cadastro.client';
 import { Data, Router } from '@angular/router';
+import { CadastroPedidosService } from '../cadastro-pedidos.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -18,7 +18,11 @@ export class CadastroComponent implements OnInit {
   public data = new Date();
   public data2 = new Date();
 
-  constructor(private readonly formBuilder: FormBuilder, private readonly cadastroClient: CadastroClient, private readonly router: Router) { }
+  constructor(
+    private readonly formBuilder: FormBuilder,
+    private readonly cadastroPedidosService: CadastroPedidosService,
+    private readonly router: Router
+  ) { }
 
   ngOnInit(): void {
     this.setupForm();
@@ -26,7 +30,7 @@ export class CadastroComponent implements OnInit {
 
   onSubmit(): void {
     this.cadastroForm?.controls['preco_total'].enable();
-    this.cadastroClient.insertPedido(this.cadastroForm?.value).subscribe((pedido) => {
+    this.cadastroPedidosService.insertPedido(this.cadastroForm?.value).subscribe((pedido) => {
         if (pedido.cod_seguranca) {
           this.router.navigate([`correios/pedidos`]);
         }

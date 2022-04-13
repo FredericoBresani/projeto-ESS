@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EntregaComponent } from './entrega/entrega.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CadastroEntregaService } from './cadastro-entrega.service';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-  ]
+  ],
+  providers: [CadastroEntregaService]
 })
 export class EntregaModule { }
