@@ -1,0 +1,50 @@
+
+<form [formGroup]="cadastroForm!" (ngSubmit)="onSubmit()">
+  <div class="formElement">
+    <label>Número do Cartão</label>
+    <input type="text" formControlName="numero_cartao">
+  </div>
+  <div class="formElement">
+    <label>Nome</label>
+    <input type="text" formControlName="nome">
+  </div>
+  <div class="formElement">
+    <label>Nome do Pedido</label>
+    <input type="text" formControlName="nome_pedido">
+  </div>
+  <div class="formElement">
+    <label>CPF</label>
+    <input type="text" formControlName="cpf">
+  </div>
+  <div class="formElement">
+    <label>Código de Segurança (100 - 999)</label>
+    <input type="number" formControlName="cod_seguranca">
+  </div>
+  <div class="formElement">
+    <label>CEP</label>
+    <input type="text" formControlName="cep">
+  </div>
+  <div class="formElement">
+    <label>Peso do Produto</label>
+    <input type="number" formControlName="peso_produto" (keyup)="updatePesoPrice($event)">
+  </div>
+  <div class="formElement">
+    <label>Endereço de Entrega</label>
+    <input type="text" formControlName="endereco_entrega">
+  </div>
+  <div class="formElement">
+    <label>Opções de Entrega</label>
+    <select formControlName="opcoes" (change)="updateOpcaoPrice()">
+      <option *ngFor="let option of options" [value]="option.value" (click)="updateOpcaoPrice()">{{ option.text }}</option>
+    </select>
+  </div>
+  <div class="formElement">
+    <label>Data de envio</label>
+    <input type="Date" formControlName="data_envio" (change)="somarData()">
+  </div>
+  <div class="formElement">
+    <label>Preço Total</label>
+    <input type="number" formControlName="preco_total">
+  </div>
+  <button type="submit" [disabled]="!cadastroForm?.valid">Confirmar</button>
+</form>

@@ -53,7 +53,7 @@ Scenario: Cadastrar pedido
   Then aplicação me redireciona para a página de login
   Then eu posso realizar o login na plataforma ou criar uma conta
 
-Scenario: Cadastrar pedido
+Scenario: Cadastrar pedido teste
   Given que eu estou na página “cadastro de pedido”
   And os campos do cadastro, "número do cartão”, “nome”, “código de segurança do cartão”, “CPF”, “CEP” e etc não estão todos preenchidos
   When eu preencho todos os campos necessários, menos o "nome" e aperto em “confirmar pedido”

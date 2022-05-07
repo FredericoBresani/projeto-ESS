@@ -1,0 +1,19 @@
+<div class="navbar">
+  <div class="appName">
+    <h1 [routerLink]="['/correios']">Correios</h1>
+  </div>
+  <div class="menu-options">
+    <img src="../../../assets/images/user.svg">
+    <div class="menu">
+      <img src="../../../assets/images/menu.svg" (click)="showNavOptions()">
+      <div class="navoptions">
+        <ul>
+          <li *ngFor="let option of options" [routerLink]="[option.path]" (click)="showNavOptions()">{{option.text}}</li>
+        </ul>
+        <ul>
+          <li (click)="logOut()" >logout</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
