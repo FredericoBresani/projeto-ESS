@@ -66,6 +66,7 @@ taserver.get('/pedidos/pedido', function(req: express.Request, res: express.Resp
 });
 
 taserver.post('/pedidos', function(req: express.Request, res: express.Response) {
+  console.log('pedido');
   try {
     const pedido = <Pedido>req.body;
     const pedidoRegistrado = pedidoService.cadastrar(pedido);
