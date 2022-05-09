@@ -11,6 +11,11 @@
   img {
     cursor: pointer;
   }
+  .appName {
+    h1 {
+      cursor: pointer;
+    }
+  }
   .menu-options {
     display: flex;
     align-items: center;
@@ -24,17 +29,20 @@
       .navoptions {
         position: absolute;
         background-color: grey;
-        right: 0;
         width: 10rem;
+        right: 0;
         display: none;
         color: black;
         ul {
           list-style: none;
           height: 100%;
+          width: 100%;
           li {
             cursor: pointer;
+            flex: 1;
             background-color: white;
-            margin: 1px;
+            margin: 1px 0px;
+            width: 100%;
           }
         }
       }
