@@ -1,6 +1,7 @@
 Feature: visualizar rastreio
 
   Scenario: Visualização de rastreio de pedidos bem sucedida
+    Given que estou na pagina rastreamento-pacote
     Given há um usuário logado com nome de usuário "aline", seja ela admin ou não admin
     When  Tento o pedido com nome de "pedido 1"
     Then  O usuario consegue visualizar o pedido
