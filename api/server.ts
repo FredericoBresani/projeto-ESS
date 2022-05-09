@@ -109,3 +109,9 @@ var server = taserver.listen(3003, function () {
 })
 
 
+function closeServer(): void {
+  server.close();
+}
+
+
+export { taserver, server, closeServer }
