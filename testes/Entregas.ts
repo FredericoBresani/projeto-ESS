@@ -7,7 +7,7 @@ let request = require("request-promise");
 
 var base_url = "http://localhost:3000/";
 
-//teste Rastreio de pacotes (tentando fazer funcionar)
+//teste Rastreio de pacotes (tentando fazer funcionar) os require do cabeçalho estao com erros
 
 async function assertTamanhoEqual(set,n) {
     await set.then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(n));
