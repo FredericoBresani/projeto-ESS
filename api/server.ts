@@ -8,9 +8,11 @@ import { Pedido } from '../Common/pedido';
 // services
 import { ObjetoService } from './Objeto/objetoService';
 import { PedidoService } from './cadastro-pedidos/pedido.service';
+import { RastreioService } from './rastreio-pacote/rastreio.service';
 
 var objetoService : ObjetoService = new ObjetoService();
 var pedidoService: PedidoService = new PedidoService();
+var rastreioService: RastreioService = new RastreioService();
 
 var allowCrossDomain = function (req: any, res: any, next: any) {
   res.header('Access-Control-Allow-Origin', "*");
@@ -94,6 +96,13 @@ taserver.delete('/pedidos', function(req: express.Request, res: express.Response
 });
 
 // end Pedidos
+
+
+//Rastreio
+taserver.get('/rastreamento-pacote', function(req: express.Request, res: express.Response) {
+  res.send(JSON.stringify(rastreioService.buscarTodos()));
+});
+//end Rastreio
 
 
 function stubAllObjects(): void{
