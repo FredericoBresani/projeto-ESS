@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pedido } from 'src/app/shared/models/pedido.model';
-import { PedidoClient } from 'src/app/shared/client/pedido.client';
 import { CadastroPedidosService } from '../cadastro-pedidos.service';
+
 
 @Component({
   selector: 'app-pedidos',

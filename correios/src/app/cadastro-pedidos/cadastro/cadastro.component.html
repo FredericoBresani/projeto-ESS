@@ -2,39 +2,39 @@
 <form [formGroup]="cadastroForm!" (ngSubmit)="onSubmit()">
   <div class="formElement">
     <label>Número do Cartão</label>
-    <input type="text" formControlName="numero_cartao">
+    <input type="text" formControlName="numero_cartao" name="numero_cartao">
   </div>
   <div class="formElement">
     <label>Nome</label>
-    <input type="text" formControlName="nome">
+    <input type="text" formControlName="nome" name="nome">
   </div>
   <div class="formElement">
     <label>Nome do Pedido</label>
-    <input type="text" formControlName="nome_pedido">
+    <input type="text" formControlName="nome_pedido" name="nome_pedido">
   </div>
   <div class="formElement">
     <label>CPF</label>
-    <input type="text" formControlName="cpf">
+    <input type="text" formControlName="cpf" name="cpf">
   </div>
   <div class="formElement">
     <label>Código de Segurança (100 - 999)</label>
-    <input type="number" formControlName="cod_seguranca">
+    <input type="number" formControlName="cod_seguranca" name="cod_seguranca">
   </div>
   <div class="formElement">
     <label>CEP</label>
-    <input type="text" formControlName="cep">
+    <input type="text" formControlName="cep" name="cep">
   </div>
   <div class="formElement">
     <label>Peso do Produto</label>
-    <input type="number" formControlName="peso_produto" (keyup)="updatePesoPrice($event)">
+    <input type="number" formControlName="peso_produto" (keyup)="updatePesoPrice($event)" name="peso">
   </div>
   <div class="formElement">
     <label>Endereço de Entrega</label>
-    <input type="text" formControlName="endereco_entrega">
+    <input type="text" formControlName="endereco_entrega" name="endereco">
   </div>
   <div class="formElement">
     <label>Opções de Entrega</label>
-    <select formControlName="opcoes" (change)="updateOpcaoPrice()">
+    <select formControlName="opcoes" (change)="updateOpcaoPrice()" name="opcoes">
       <option *ngFor="let option of options" [value]="option.value" (click)="updateOpcaoPrice()">{{ option.text }}</option>
     </select>
   </div>
@@ -44,7 +44,7 @@
   </div>
   <div class="formElement">
     <label>Preço Total</label>
-    <input type="number" formControlName="preco_total">
+    <input type="number" formControlName="preco_total" name="preco_total">
   </div>
-  <button type="submit" [disabled]="!cadastroForm?.valid">Confirmar</button>
+  <button type="submit" [disabled]="!cadastroForm?.valid" name="submit">Confirmar</button>
 </form>
