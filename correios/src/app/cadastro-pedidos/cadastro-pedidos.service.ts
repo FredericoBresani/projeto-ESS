@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { CadastroPedidoClient } from "../shared/client/cadastro-pedido.client";
 import { Pedido } from "../shared/models/pedido.model";
 import { PedidoClient } from "../shared/client/pedido.client";
 
@@ -8,17 +7,17 @@ import { PedidoClient } from "../shared/client/pedido.client";
   providedIn: 'root'
 })
 export class CadastroPedidosService {
-  constructor(private readonly cadastroPedidoClient: CadastroPedidoClient, private readonly pedidoClient: PedidoClient) {}
+  constructor(private readonly pedidoClient: PedidoClient) {}
 
   public getPedidos(): Observable<Pedido[]> {
-    return this.cadastroPedidoClient.getPedidos();
+    return this.pedidoClient.getPedidos();
   }
 
   public insertPedido(pedido: Pedido): Observable<Pedido> {
-    return this.cadastroPedidoClient.insertPedido(pedido);
+    return this.pedidoClient.insertPedido(pedido);
   }
 
-  public atualizarPedido(pedido: Pedido): Observable<Pedido[]> {
+  public atualizarPedido(pedido: Pedido): Observable<Pedido> {
     return this.pedidoClient.atualizarPedido(pedido);
   }
 

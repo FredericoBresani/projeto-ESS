@@ -30,6 +30,7 @@ export class CadastroComponent implements OnInit {
 
   onSubmit(): void {
     this.cadastroForm?.controls['preco_total'].enable();
+    console.log(this.cadastroForm?.value);
     this.cadastroPedidosService.insertPedido(this.cadastroForm?.value).subscribe((pedido) => {
         if (pedido.cod_seguranca) {
           this.router.navigate([`correios/pedidos`]);

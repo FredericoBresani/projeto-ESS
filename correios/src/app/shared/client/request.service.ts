@@ -2,6 +2,8 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Pedido } from "../models/pedido.model";
+import { environment } from "src/environments/environment";
+import { HttpParams, HttpParamsOptions, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root',
@@ -12,61 +14,24 @@ export class RequestService {
 
   constructor (private readonly httpClient: HttpClient) {} // httpClient, será usado para requisições http ao servidor
 
-  insertPedido(endPoint: string, pedido: Pedido): Observable<Pedido> {
-    this.pedidos.push(pedido);
-    return new Observable(subscriber => {
-      subscriber.next(pedido);
+  get<T>(endPoint: string, params?: any, headers?: any): Observable<T[]> {
+    return this.httpClient.get<T[]>(`${environment.API_URL}/${endPoint}`, {
+      params: new HttpParams({fromObject: params} as HttpParamsOptions),
+      headers: new HttpHeaders(headers),
     });
   }
 
-  get(endPoint: string): Observable<Pedido[]> {
-    return new Observable(subscriber => {
-       subscriber.next(this.pedidos);
-    })
+  post<T>(endPoint: string, body: T): Observable<T> {
+    return this.httpClient.post<T>(`${environment.API_URL}/${endPoint}`, body);
   }
 
-  delete(endPoint: string, pedido: Pedido): Observable<Pedido[]> {
-    const index = this.pedidos.indexOf(pedido);
-    if (index === -1) {
-      return new Observable(subscriber => {
-        subscriber.error();
-      })
-    }
-    let remaining: Pedido[] = [];
-    let indexRemaining = 0;
-    this.pedidos.forEach(element => {
-      if (indexRemaining !== index) {
-        remaining.push(element);
-      }
-      indexRemaining++;
-    });
-    this.pedidos = remaining;
-    return new Observable(subscriber => {
-      subscriber.next(this.pedidos);
-    })
+  put<T>(endPoint: string, body: T): Observable<T> {
+    return this.httpClient.put<T>(`${environment.API_URL}/${endPoint}`, body);
   }
 
-  put(endPoint: string, pedido: Pedido): Observable<Pedido[]> {
-    const index = this.pedidos.indexOf(pedido);
-    if (index === -1) {
-      return new Observable(subscriber => {
-        subscriber.error();
-      })
-    }
-    let remaining: Pedido[] = [];
-    let indexRemaining = 0;
-    this.pedidos.forEach(element => {
-      if (indexRemaining !== index) {
-        remaining.push(element);
-      }
-      else{
-        remaining.push(pedido);
-      }
-      indexRemaining++;
+  delete<T>(endPoint: string, body: any): Observable<T> {
+    return this.httpClient.delete<T>(`${environment.API_URL}/${endPoint}`, {
+      params: new HttpParams({fromObject: body} as HttpParamsOptions)
     });
-    this.pedidos = remaining;
-    return new Observable(subscriber => {
-      subscriber.next(this.pedidos);
-    })
   }
 }

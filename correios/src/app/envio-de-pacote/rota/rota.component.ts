@@ -15,6 +15,8 @@ export class RotaComponent implements OnInit {
 
   public pedidos?: Pedido[];
 
+  public pedido?: Pedido;
+
   public dialogData?: DialogData;
 
   constructor(
@@ -57,7 +59,7 @@ export class RotaComponent implements OnInit {
       }
     }//SO VAI PRECISAR enviar pedido no paramentro
     this.cadastroPedidosService.atualizarPedido(pedido).subscribe((pedidos) => {
-      this.pedidos = pedidos;
+      this.pedido = pedidos;
     })
   }
 
