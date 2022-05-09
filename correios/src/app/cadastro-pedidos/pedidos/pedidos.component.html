@@ -1,7 +1,7 @@
 <div class="pedidos">
   <div class="pedido" *ngFor="let pedido of pedidos">
     <div class="pedido-info">
-      <div class="produto">{{ pedido.nome_pedido }} -</div>
+      <div class="produto" name="pedido_nome">{{ pedido.nome_pedido }} -</div>
       <div class="preco">{{ pedido.preco_total | currency:'BRL' }}</div>
     </div>
     <button (click)="cancelarPedido(pedido)">Cancelar</button>

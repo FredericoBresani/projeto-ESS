@@ -9,25 +9,25 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   public loginForm?: FormGroup;
-  
+
   constructor(private readonly formBuilder: FormBuilder, private readonly router: Router) { }
 
   ngOnInit(): void {
     this.setupForm();
   }
 
-  signIn(): void{    
+  signIn(): void{
     let logado = true;
     localStorage.setItem('logado', JSON.stringify(logado));
     this.router.navigate(['correios']);
-  }  
+  }
 
   setupForm(): void {
     this.loginForm = this.formBuilder.group({
       usuario: ['', Validators.required],
       senha: ['', Validators.required],
     });
-    
+
   }
 
 }
