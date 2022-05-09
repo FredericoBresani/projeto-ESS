@@ -1,3 +1,7 @@
+.Titulo{
+  cursor: pointer;
+  padding-top: 1rem;
+}
 .navbar {
   display: flex;
   width: 100%;
@@ -23,18 +27,19 @@
       position: relative;
       .navoptions {
         position: absolute;
-        background-color: grey;
         right: 0;
-        width: 10rem;
+        width: 15rem;
         display: none;
         color: black;
         ul {
           list-style: none;
           height: 100%;
+          margin: 0;
           li {
             cursor: pointer;
             background-color: white;
             margin: 1px;
+            border: 1px solid black;
           }
         }
       }

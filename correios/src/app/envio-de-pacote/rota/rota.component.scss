@@ -2,5 +2,19 @@
 
 .rota {
   display: flex;
+  border: 1px solid blue;
+  padding: 1rem;
+  margin: 0.5rem;
+  gap: 1rem;
+  align-items: center;
+}
+
+button{
+  border-style: none;
+  background-color: white;
+  border: 1px solid black;
+  color: blue;
+  padding: 0.2rem;
+  box-shadow: 5px 5px 5px #eee;
 }
 
