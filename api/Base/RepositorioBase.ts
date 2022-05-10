@@ -1,8 +1,9 @@
 export abstract class RepositorioBase<T>{
   
-  private banco: T[] = [];
+  public banco: T[] = [];
   
   adicionar(obj: T): T {
+    this.banco.push(obj);
     return this.buscar(obj);
   } 
 
@@ -30,6 +31,10 @@ export abstract class RepositorioBase<T>{
   pegarIndexObjeto(obj: T): number {
     const index = this.banco.findIndex((element) => element == obj);
     return index;
+  }
+
+  setIndexObjeto(obj:T, index: number){
+    this.banco[index] = obj;
   }
 
 }

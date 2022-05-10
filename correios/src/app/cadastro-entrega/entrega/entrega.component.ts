@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import  {Entrega } from "../../../../../Common/Entrega";
+import { EntregaRequest } from '../../../app/shared/Entrega/entrega.request';
+import { Objeto } from '../../../../../Common/Objeto';
 @Component({
   selector: 'app-entrega',
   templateUrl: './entrega.component.html',
@@ -8,37 +10,45 @@ import  {Entrega } from "../../../../../Common/Entrega";
 })
 export class EntregaComponent implements OnInit {
 
-  constructor(private readonly formBuilder: FormBuilder) { }
+  constructor(private readonly entregaRequest: EntregaRequest) { }
 
   entregas : Entrega[] = [];
+  objetoAberto: Objeto[] = [];
+  objetoEmpacotado: Objeto[] = [];
 
-  public cadastroForm2 = new FormGroup({
-    codigoProduto: new FormControl(''),
-    codigoEntregador: new FormControl(''),
-  });
+   
+  refreshAllget(){
+    this.entregaRequest.getOBjetosAbertos().subscribe((objetos) => {
+      this.objetoAberto = objetos;
+   });
 
-  ngOnInit(): void {
+   this.entregaRequest.getOBjetosEmpacotados().subscribe((objetos) =>{
+    this.objetoEmpacotado = objetos;
+   });
 
-  
   }
   
+  ngOnInit(): void {
+
+    this.refreshAllget();
+
+  }
+ 
+
   fecharPedidos():void {
     alert("Objetos em rota de entrega.");
   }
 
-  limparForm():void{
-    this.cadastroForm2?.patchValue({
-      codigoProduto : '',
-      codigoEntregador : ''
-    });
+  adicionarObjetoEntrega(codigo:string){
+    this.entregaRequest.empacotarObjetos(codigo);
+    this.refreshAllget();
   }
-  onSubmit(): void {
-    let codigoProduto =  this.cadastroForm2?.controls['codigoProduto'].value;
-    let codigoEntregador =  this.cadastroForm2?.controls['codigoEntregador'].value;
-
-    this.entregas.push( new Entrega(codigoProduto,codigoEntregador));
-
-    this.limparForm();
+  
+  removerOBjetoEmpacotamento(codigo:string){
+    this.entregaRequest.abrirObjetos(codigo);
+    this.refreshAllget();
   }
+
+
 
 }

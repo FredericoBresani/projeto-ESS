@@ -4,6 +4,7 @@ import { json } from 'stream/consumers';
 // classes
 import { Objeto } from '../Common/Objeto';
 import { Pedido } from '../Common/pedido';
+import {RetornoApi} from "../Common/RetornoApi"
 
 // services
 import { ObjetoService } from './Objeto/objetoService';
@@ -14,8 +15,8 @@ var pedidoService: PedidoService = new PedidoService();
 
 var allowCrossDomain = function (req: any, res: any, next: any) {
   res.header('Access-Control-Allow-Origin', "*");
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Allow-Methods', "*");
+  res.header('Access-Control-Allow-Headers', "*");
   next();
 }
 
@@ -25,25 +26,73 @@ taserver.use(express.json());
 
 // Objetos
 
-taserver.get('/Objetos', function (req: express.Request, res: express.Response) {
+taserver.get('/Objeto', function (req: express.Request, res: express.Response) {
   res.send(JSON.stringify(objetoService.buscarTodos()));
 })
 
 taserver.post('/Objeto',function(req: express.Request, res: express.Response){
   var objeto  : Objeto; 
+  var retornoApi :RetornoApi;
+
   try{
     objeto = <Objeto>req.body;  
    }catch(error){
-    res.status(400).send({ "mensagem": error.message });
+     retornoApi.Status= "ERROR"
+     retornoApi.Mensagem = error.message
+    res.status(400).send( JSON.stringify(retornoApi) );
    }
 
    try{
      objetoService.cadastrar(objeto);
+     retornoApi.Status= "sucesso"
      res.send({ "mensagem": "Cadastro realizado com sucesso." });
    }catch(error){
     res.status(400).send({ "mensagem": error.message });
    }
 })
+
+
+taserver.post('/Objeto/Empacotar',function(req: express.Request, res: express.Response){ 
+  console.log("123"); 
+  var  codigo = req.body.codigo;  
+  // var retornoApi :RetornoApi;
+  
+  // retornoApi.Status = "SUCESSO";
+  // retornoApi.Status = "OBj Empacotado";
+
+  var obj =  objetoService.trocarStatus(codigo,"EMPACOTANDO");
+  res.send(JSON.stringify(obj));
+    
+})
+
+
+
+taserver.post('/Objeto/Aberto',function(req: express.Request, res: express.Response){
+  var  codigo = req.body.codigo;  
+  objetoService.trocarStatus(codigo,"ABERTO");
+  res.send({ "mensagem": "Obj Empacotado." });
+})
+
+
+taserver.get('/Objeto/Empacotado',function(req: express.Request, res: express.Response){ 
+  // var retornoApi :RetornoApi; 
+  // retornoApi.Status = "SUCESSO";  
+  // retornoApi.Conteudo = objetoService.buscarEmpacotados();
+  
+  res.send(JSON.stringify(objetoService.buscarEmpacotados()));
+})
+
+
+
+taserver.get('/Objeto/Aberto',function(req: express.Request, res: express.Response){
+  // var retornoApi :RetornoApi; 
+  // retornoApi.Status = "SUCESSO";  
+  // retornoApi.Conteudo = objetoService.buscarAbertos(); 
+  res.send(JSON.stringify(objetoService.buscarAbertos()));
+})
+
+
+
 
 // end Objetos
 
@@ -98,9 +147,9 @@ taserver.delete('/pedidos', function(req: express.Request, res: express.Response
 
 
 function stubAllObjects(): void{
-  objetoService.cadastrar(new Objeto("123"));
-  objetoService.cadastrar(new Objeto("123abc"));
-  objetoService.cadastrar(new Objeto("Julio123")); 
+  objetoService.cadastrar(new Objeto("123","ABERTO"));
+  objetoService.cadastrar(new Objeto("123abc","ABERTO"));
+  objetoService.cadastrar(new Objeto("Julio123","ABERTO")); 
 }
 
 var server = taserver.listen(3003, function () { 

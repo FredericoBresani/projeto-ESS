@@ -12,4 +12,22 @@ export class ObjetoService{
       return this.objetoRepositorio.buscarTodos();
     }
 
+    buscarAbertos() : Objeto[]{
+      return this.objetoRepositorio.buscarTodos().filter(el => el.status == "ABERTO")
+    }
+
+    
+    buscarEmpacotados() : Objeto[]{
+      return this.objetoRepositorio.buscarTodos().filter(el => el.status == "EMPACOTANDO")
+    }
+
+    trocarStatus(codigo : string,status:string):Objeto{
+      console.log("chegou status");
+      var obj = this.buscarTodos().filter(el => el.codigo === codigo)[0];
+      this.objetoRepositorio.banco = this.objetoRepositorio.banco.filter(el => el.codigo != codigo);
+      obj.status = "EMPACOTANDO";
+      this.objetoRepositorio.adicionar(obj);
+      return obj;
+    }
+
 }
