@@ -4,14 +4,24 @@
   .pedido {
     width: 30%;
     display: flex;
-    justify-content: space-between;
+    gap: 1rem;
+    // justify-content: space-between;
     align-items: center;
-    margin: 2rem 0;
+    margin: 2rem 1rem;
     .pedido-info {
       display: flex;
       justify-content: space-between;
+      padding: 0 1rem 0 1rem;
       width: 250px;
       border: 1px solid $blue-main;
     }
   }
+}
+button{
+  border-style: none;
+  background-color: white;
+  border: 1px solid black;
+  color: blue;
+  padding: 0.2rem;
+  box-shadow: 5px 5px 5px #eee;
 }

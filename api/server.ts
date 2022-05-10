@@ -16,11 +16,11 @@ import { Usuario } from '../Common/Usuario'
 // services
 import { ObjetoService } from './Objeto/objetoService';
 import { PedidoService } from './cadastro-pedidos/pedido.service';
-// import { LoginService } from './login/login.service';
+import { RastreioService } from './rastreio-pacote/rastreio.service';
 
 var objetoService : ObjetoService = new ObjetoService();
 var pedidoService: PedidoService = new PedidoService();
-// var loginService: LoginService = new LoginService();
+var rastreioService: RastreioService = new RastreioService();
 
 var allowCrossDomain = function (req: any, res: any, next: any) {
   res.header('Access-Control-Allow-Origin', "*");
@@ -74,9 +74,12 @@ taserver.get('/pedidos/pedido', function(req: express.Request, res: express.Resp
 });
 
 taserver.post('/pedidos', function(req: express.Request, res: express.Response) {
-  console.log('pedido');
+  
   try {
     const pedido = <Pedido>req.body;
+    if (!pedido.cpf) {
+      throw new Error('O CPF do cliente deve estar cadastrado no pedido');
+    }
     const pedidoRegistrado = pedidoService.cadastrar(pedido);
     res.send(JSON.stringify(pedidoRegistrado));
   } catch(error){
@@ -133,6 +136,13 @@ taserver.post('/logout',function(req: express.Request, res: express.Response){
 })
 
 //End Login
+
+//Rastreio
+taserver.get('/rastreamento-pacote', function(req: express.Request, res: express.Response) {
+  res.send(JSON.stringify(rastreioService.buscarTodos()));
+});
+//end Rastreio
+
 
 function stubAllObjects(): void{
   objetoService.cadastrar(new Objeto("123"));
