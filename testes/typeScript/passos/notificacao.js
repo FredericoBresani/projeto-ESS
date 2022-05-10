@@ -17,7 +17,7 @@ cucumber_1.defineSupportCode(function ({ Given, When, Then }) {
         yield protractor_1.browser.get("http://localhost:4200/#/correios/pedidos");
         yield expect(protractor_1.browser.getTitle()).to.eventually.equal("Correios");
     }));
-    When(/^o pedido é atualizado na página de rotas ao pressionar o botão "Atualizar Caminho"$/, () => __awaiter(this, void 0, void 0, function* () {
+    When(/^o pedido é atualizado na página de rotas ao pressionar o botão Atualizar Caminho$/, () => __awaiter(this, void 0, void 0, function* () {
         yield protractor_1.browser.get("http://localhost:4200/#/correios/rota");
         yield protractor_1.element(protractor_1.by.name('botaoAtualizar')).click();
     }));
