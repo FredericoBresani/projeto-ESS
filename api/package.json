@@ -21,7 +21,7 @@
   },
   "scripts": {
     "test_init": "./node_modules/.bin/jasmine init",
-    "test": "./node_modules/.bin/jasmine",
+    "test": "jasmine",
     "build": "tsc",
     "start": "tsc & nodemon compiledCode/api/server.js",
     "dev": "tsc -w & nodemon compiledCode/api/server.js"

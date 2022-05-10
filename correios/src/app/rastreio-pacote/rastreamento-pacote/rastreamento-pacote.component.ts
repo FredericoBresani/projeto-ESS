@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pedido } from 'src/app/shared/models/pedido.model';
+import { Pedido } from '../../../../../Common/pedido';
 import { CadastroPedidosService } from 'src/app/cadastro-pedidos/cadastro-pedidos.service';
 @Component({
   selector: 'app-rastreamento-pacote',
