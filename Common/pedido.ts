@@ -1,4 +1,4 @@
-export class Pedido {
+export interface Pedido {
   numero_cartao: string;
 
   nome: string;
@@ -17,7 +17,7 @@ export class Pedido {
 
   data_envio: Date;
 
-  Data_formatada: Date;
+  Data_formatada?: Date;
 
   tempo_entrega: Date;
 

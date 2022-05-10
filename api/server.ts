@@ -66,9 +66,12 @@ taserver.get('/pedidos/pedido', function(req: express.Request, res: express.Resp
 });
 
 taserver.post('/pedidos', function(req: express.Request, res: express.Response) {
-  console.log('pedido');
+  
   try {
     const pedido = <Pedido>req.body;
+    if (!pedido.cpf) {
+      throw new Error('O CPF do cliente deve estar cadastrado no pedido');
+    }
     const pedidoRegistrado = pedidoService.cadastrar(pedido);
     res.send(JSON.stringify(pedidoRegistrado));
   } catch(error){
@@ -118,3 +121,9 @@ var server = taserver.listen(3003, function () {
 })
 
 
+function closeServer(): void {
+  server.close();
+}
+
+
+export { taserver, server, closeServer }

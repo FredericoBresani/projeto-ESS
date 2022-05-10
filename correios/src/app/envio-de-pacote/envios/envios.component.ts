@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pedido } from 'src/app/shared/models/pedido.model';
+import { Pedido } from '../../../../../Common/pedido';
 import { EnvioDePacotesService } from '../envio-de-pacotes.service'
 import { CadastroPedidosService } from '../../cadastro-pedidos/cadastro-pedidos.service'
 

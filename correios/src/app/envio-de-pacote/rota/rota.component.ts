@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pedido } from 'src/app/shared/models/pedido.model';
+import { Pedido } from '../../../../../Common/pedido';
 import { MatDialog } from '@angular/material/dialog';
 import {DialogComponent} from '../../notificacao/dialog/dialog.component';
 import { DialogData } from 'src/app/shared/models/dialog-data.model';
