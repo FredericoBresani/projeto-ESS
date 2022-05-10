@@ -1,5 +1,5 @@
 Feature: Notificações sobre o pacote
-		Administrador gostaria de saber a posição que seu pacote está
+		Administrador gostaria de saber a posição que seu pacote está localizado
 			
 
 Scenario: Notificar atualização de pacote Distrito Federal para Goias
