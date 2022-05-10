@@ -57,7 +57,7 @@ cucumber_1.defineSupportCode(function ({ Given, When, Then }) {
     }));
     Then(/^o pacote é atualizado na pagina de rotas e aparece um dialog informando que o pacote "([^\"]*)" agora está em "Goias"$/, (nome_pedido) => __awaiter(this, void 0, void 0, function* () {
         yield protractor_1.browser.get("http://localhost:4200/#/correios/rota");
-        yield protractor_1.element("h1").getText("Atualização sobre o seu pacote " +nome_pedido);
+        yield protractor_1.element("h1").getText("Atualização sobre o seu pacote " + nome_pedido);
         yield protractor_1.element("div").getText("Seu pacote está na unidade de tratamento em Goias");
     }));
 });

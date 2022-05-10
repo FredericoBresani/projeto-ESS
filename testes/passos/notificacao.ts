@@ -53,8 +53,8 @@ defineSupportCode(function({Given, When, Then}) {
   })
   Then(/^o pedido é atualizado na página de rotas e aparece um dialog informando que o pacote "([^\"]*)" agora está em "Goias"$/, async (nome_pedido) => {
     await browser.get("http://localhost:4200/#/correios/rota");
-    await expect(browser.getDocument.querySelector("#mat-dialog-1").getText()).to.eventually.equal("Atualização sobre o seu pacote " + nome_pedido);
-    await expect(browser.getDocument.querySelector("#mat-dialog-1").getText()).to.eventually.equal("Seu pacote está na unidade de tratamento em Goias");
+    await expect(browser.getDocument.querySelector("#mat-dialog-0").getText()).to.eventually.equal("Atualização sobre o seu pacote " + nome_pedido);
+    await expect(browser.getDocument.querySelector("#mat-dialog-0").getText()).to.eventually.equal("Seu pacote está na unidade de tratamento em Goias");
     await expect(browser.getRoles()).to.equal("dialog");
     })
    Then(/^o pedido é atualizado na página de rotas e aparece um dialog informando que o pacote "([^\"]*)" agora está em "Bahia"$/, async (nome_pedido) => {
@@ -66,8 +66,8 @@ defineSupportCode(function({Given, When, Then}) {
     })
    Then(/^o pedido é atualizado na página de rotas e aparece um dialog informando que o pacote "([^\"]*)" agora está em "Pernambuco"$/, async (nome_pedido) => {
     await browser.get("http://localhost:4200/#/correios/rota");
-    await expect(browser.getDocument.querySelector("#mat-dialog-1").getText()).to.eventually.equal("Atualização sobre o seu pacote " + nome_pedido);
-    await expect(browser.getDocument.querySelector("#mat-dialog-1").getText()).to.eventually.equal("Seu pacote está na unidade de tratamento em Goias");
+    await expect(browser.getDocument.querySelector("#mat-dialog-2").getText()).to.eventually.equal("Atualização sobre o seu pacote " + nome_pedido);
+    await expect(browser.getDocument.querySelector("#mat-dialog-2").getText()).to.eventually.equal("Seu pacote está na unidade de tratamento em Goias");
     await expect(browser.getRoles()).to.equal("dialog");
     })
 })
