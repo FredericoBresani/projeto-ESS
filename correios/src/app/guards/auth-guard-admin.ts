@@ -14,8 +14,7 @@ export class AuthGuardAdmin implements CanActivate {
     if(!localStorage.getItem('USUARIO')){
       return  false;
     }
-    let isLogado = JSON.parse(localStorage.getItem('USUARIO')!);
-    console.log("🚀 ~ file: auth-guard.ts ~ line 15 ~ AuthGuard ~ canActivate ~ isLogado", isLogado)
+    let isLogado = JSON.parse(localStorage.getItem('USUARIO')!);    
     if(isLogado.auth){
         if(isLogado.role == "admin"){
             return true;

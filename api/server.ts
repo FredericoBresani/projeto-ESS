@@ -3,7 +3,9 @@ import { json } from 'stream/consumers';
 const jwt = require('jsonwebtoken');
 const SECRET = "%3sut&*asd23%$";
 const usuarios = [{nick:"wilson", senha:"123", role:"admin"},
-                  {nick:"pedro", senha:"123", role:"client"}]
+                  {nick:"pedro", senha:"123", role:"client"},
+                  {nick:"fred", senha:"123456", role:"client"}
+                ]
 
 
 // classes
@@ -14,9 +16,11 @@ import { Usuario } from '../Common/Usuario'
 // services
 import { ObjetoService } from './Objeto/objetoService';
 import { PedidoService } from './cadastro-pedidos/pedido.service';
+// import { LoginService } from './login/login.service';
 
 var objetoService : ObjetoService = new ObjetoService();
 var pedidoService: PedidoService = new PedidoService();
+// var loginService: LoginService = new LoginService();
 
 var allowCrossDomain = function (req: any, res: any, next: any) {
   res.header('Access-Control-Allow-Origin', "*");
@@ -109,8 +113,9 @@ taserver.post('/login',function(req: express.Request, res: express.Response){
   var userSenha = req.body.senha;
   var user = usuarios.find(x => x.nick === userLogin && x.senha === userSenha)
   //36.000 = 10 horas
-  
+
   if(user != null){
+    
     const token = jwt.sign({role : user.role}, SECRET, {expiresIn: 90} )    
     const usuario = new Usuario(user.nick, "", true, token, user.role);
     return res.send(JSON.stringify(usuario)) 
