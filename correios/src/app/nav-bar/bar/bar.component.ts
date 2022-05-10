@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {Usuario } from '../../../../../Common/Usuario'
 
 @Component({
   selector: 'app-bar',
@@ -26,6 +27,9 @@ export class BarComponent implements OnInit {
   }
 
   logOut(): void{
+    var userLogin = new Usuario("", "",false, "","");
+    // localStorage.setItem('USUARIO', JSON.stringify(usuario));
+    localStorage.setItem("USUARIO",JSON.stringify(userLogin));
     localStorage.clear();
     this.router.navigate(['']);
   }

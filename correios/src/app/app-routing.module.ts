@@ -9,7 +9,8 @@ import { EnviosComponent } from './envio-de-pacote/envios/envios.component';
 import { RotaComponent } from './envio-de-pacote/rota/rota.component';
 import { RastreamentoPacoteComponent } from './rastreio-pacote/rastreamento-pacote/rastreamento-pacote.component';
 import { NotificacoesComponent } from './notificacao/notificacoes/notificacoes.component';
-
+import { AuthGuardAdmin } from './guards/auth-guard-admin';
+import { AuthGuardClient } from './guards/auth-guard-client';
 
 const routes: Routes = [
   {
@@ -19,41 +20,41 @@ const routes: Routes = [
   },
   {
     path: 'correios/pedidos',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardClient],
     component: PedidosComponent,
   },
   {
     path: 'correios/cadastrar-pedido',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardAdmin],
     component: CadastroComponent,
 
   },{
     path: 'correios/entrega',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardAdmin],
     component: EntregaComponent
   },
   {
-    path: '',
+    path: '',    
     component: LoginComponent,
   },
   {
     path: 'correios/envio-de-pacote',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardAdmin],
     component: EnviosComponent,
   },
   {
     path: 'correios/rota',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardAdmin],
     component: RotaComponent,
   },
   {
     path: 'correios/rastreamento-pacote',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardClient],
     component: RastreamentoPacoteComponent,
   },
   {
     path: 'correios/notificacoes',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardClient],
     component: NotificacoesComponent,
   },
 ];
