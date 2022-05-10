@@ -4,6 +4,7 @@
   "description": "",
   "main": "compiledCode/api/server.js",
   "dependencies": {
+    "@material/dialog": "^14.0.0",
     "@types/jasmine": "^4.0.3",
     "cors": "^2.8.5",
     "express": "^4.17.3",
