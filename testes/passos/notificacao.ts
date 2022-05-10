@@ -43,31 +43,30 @@ defineSupportCode(function({Given, When, Then}) {
     await element(by.name('submit')).click();
   })
 
-  Then(/^o pedido é devidamente cadastrado com nome "pedro - pedido" e a aplicação é redirecionada para a página de pedidos$/, async () => {
+  Then(/^o pedido é devidamente cadastrado com nome "pedro - TV LCD" e a aplicação é redirecionada para a página de pedidos$/, async () => {
     await browser.get("http://localhost:4200/#/correios/pedidos");
     await expect(browser.getTitle()).to.eventually.equal("Correios");
   })
   Then(/^o pedido é atualizado na página de rotas ao pressionar o botão "Atualizar Caminho"$/, async () => {
     await browser.get("http://localhost:4200/#/correios/rota");
-    await element(by.name('Atualizar Caminho')).click();
+    await element(by.name('botaoAtualizar')).click();
   })
   Then(/^o pedido é atualizado na página de rotas e aparece um dialog informando que o pacote "([^\"]*)" agora está em "Goias"$/, async (nome_pedido) => {
-    await browser.get("http://localhost:4200/#/correios/rota");
-    await expect(browser.getDocument.querySelector("#mat-dialog-0").getTitle()).to.eventually.equal("Atualização sobre o seu pacote " + nome_pedido);
-    await expect(browser.getDocument.querySelector("#mat-dialog-0").getContent()).to.eventually.equal("Seu pacote está na unidade de tratamento em Goias");
-    await expect(browser.getRoles()).to.equal("dialog");
+    await expect(element(by.name("dialog")).getText()).to.eventually.equal("Atualização sobre o seu pacote " + nome_pedido);
+    await expect(element(by.name("dialog")).getText()).to.eventually.equal("Seu pacote está na unidade de tratamento em Goias");
+    //await expect(browser.getRoles()).to.equal("dialog");
     })
    Then(/^o pedido é atualizado na página de rotas e aparece um dialog informando que o pacote "([^\"]*)" agora está em "Bahia"$/, async (nome_pedido) => {
     await browser.get("http://localhost:4200/#/correios/rota");
-    await element(by.name('Atualizar Caminho')).click();
-    await expect(browser.getDocument.querySelector("#mat-dialog-1").getTitle()).to.eventually.equal("Atualização sobre o seu pacote " + nome_pedido);
-    await expect(browser.getDocument.querySelector("#mat-dialog-1").getContent()).to.eventually.equal("Seu pacote está na unidade de tratamento em Bahia");
-    await expect(browser.getRoles()).to.equal("dialog");
+    await element(by.name('botaoAtualizar')).click();
+    await expect(element(by.name("dialog")).getText()).to.eventually.equal("Atualização sobre o seu pacote " + nome_pedido);
+    await expect(element(by.name("dialog")).getText()).to.eventually.equal("Seu pacote está na unidade de tratamento em Bahia");
+    //await expect(browser.getRoles()).to.equal("dialog");
     })
    Then(/^o pedido é atualizado na página de rotas e aparece um dialog informando que o pacote "([^\"]*)" agora está em "Pernambuco"$/, async (nome_pedido) => {
     await browser.get("http://localhost:4200/#/correios/rota");
-    await expect(browser.getDocument.querySelector("#mat-dialog-2").getTitle()).to.eventually.equal("Atualização sobre o seu pacote " + nome_pedido);
-    await expect(browser.getDocument.querySelector("#mat-dialog-2").getContent()).to.eventually.equal("Seu pacote está na unidade de tratamento em Goias");
-    await expect(browser.getRoles()).to.equal("dialog");
+    await expect(element(by.name("dialog")).getText()).to.eventually.equal("Atualização sobre o seu pacote " + nome_pedido);
+    await expect(element(by.name("dialog")).getText()).to.eventually.equal("Seu pacote está na unidade de tratamento em Pernambuco");
+    //await expect(browser.getRoles()).to.equal("dialog");
     })
 })

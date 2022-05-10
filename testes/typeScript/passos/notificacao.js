@@ -47,31 +47,30 @@ cucumber_1.defineSupportCode(function ({ Given, When, Then }) {
         yield protractor_1.$("select[name='opcoes']").sendKeys('Entrega Rapida');
         yield protractor_1.element(protractor_1.by.name('submit')).click();
     }));
-    Then(/^o pedido é devidamente cadastrado com nome "pedro - pedido" e a aplicação é redirecionada para a página de pedidos$/, () => __awaiter(this, void 0, void 0, function* () {
+    Then(/^o pedido é devidamente cadastrado com nome "pedro - TV LCD" e a aplicação é redirecionada para a página de pedidos$/, () => __awaiter(this, void 0, void 0, function* () {
         yield protractor_1.browser.get("http://localhost:4200/#/correios/pedidos");
         yield expect(protractor_1.browser.getTitle()).to.eventually.equal("Correios");
     }));
     Then(/^o pedido é atualizado na página de rotas ao pressionar o botão "Atualizar Caminho"$/, () => __awaiter(this, void 0, void 0, function* () {
         yield protractor_1.browser.get("http://localhost:4200/#/correios/rota");
-        yield protractor_1.element(protractor_1.by.name('Atualizar Caminho')).click();
+        yield protractor_1.element(protractor_1.by.name('botaoAtualizar')).click();
     }));
     Then(/^o pedido é atualizado na página de rotas e aparece um dialog informando que o pacote "([^\"]*)" agora está em "Goias"$/, (nome_pedido) => __awaiter(this, void 0, void 0, function* () {
-        yield protractor_1.browser.get("http://localhost:4200/#/correios/rota");
-        yield expect(protractor_1.browser.getDocument.querySelector("#mat-dialog-0").getTitle()).to.eventually.equal("Atualização sobre o seu pacote " + nome_pedido);
-        yield expect(protractor_1.browser.getDocument.querySelector("#mat-dialog-0").getContent()).to.eventually.equal("Seu pacote está na unidade de tratamento em Goias");
-        yield expect(protractor_1.browser.getRoles()).to.equal("dialog");
+        yield expect(protractor_1.element(protractor_1.by.name("dialog")).getText()).to.eventually.equal("Atualização sobre o seu pacote " + nome_pedido);
+        yield expect(protractor_1.element(protractor_1.by.name("dialog")).getText()).to.eventually.equal("Seu pacote está na unidade de tratamento em Goias");
+        //await expect(browser.getRoles()).to.equal("dialog");
     }));
     Then(/^o pedido é atualizado na página de rotas e aparece um dialog informando que o pacote "([^\"]*)" agora está em "Bahia"$/, (nome_pedido) => __awaiter(this, void 0, void 0, function* () {
         yield protractor_1.browser.get("http://localhost:4200/#/correios/rota");
-        yield protractor_1.element(protractor_1.by.name('Atualizar Caminho')).click();
-        yield expect(protractor_1.browser.getDocument.querySelector("#mat-dialog-1").getTitle()).to.eventually.equal("Atualização sobre o seu pacote " + nome_pedido);
-        yield expect(protractor_1.browser.getDocument.querySelector("#mat-dialog-1").getContent()).to.eventually.equal("Seu pacote está na unidade de tratamento em Bahia");
-        yield expect(protractor_1.browser.getRoles()).to.equal("dialog");
+        yield protractor_1.element(protractor_1.by.name('botaoAtualizar')).click();
+        yield expect(protractor_1.element(protractor_1.by.name("dialog")).getText()).to.eventually.equal("Atualização sobre o seu pacote " + nome_pedido);
+        yield expect(protractor_1.element(protractor_1.by.name("dialog")).getText()).to.eventually.equal("Seu pacote está na unidade de tratamento em Bahia");
+        //await expect(browser.getRoles()).to.equal("dialog");
     }));
     Then(/^o pedido é atualizado na página de rotas e aparece um dialog informando que o pacote "([^\"]*)" agora está em "Pernambuco"$/, (nome_pedido) => __awaiter(this, void 0, void 0, function* () {
         yield protractor_1.browser.get("http://localhost:4200/#/correios/rota");
-        yield expect(protractor_1.browser.getDocument.querySelector("#mat-dialog-2").getTitle()).to.eventually.equal("Atualização sobre o seu pacote " + nome_pedido);
-        yield expect(protractor_1.browser.getDocument.querySelector("#mat-dialog-2").getContent()).to.eventually.equal("Seu pacote está na unidade de tratamento em Goias");
-        yield expect(protractor_1.browser.getRoles()).to.equal("dialog");
+        yield expect(protractor_1.element(protractor_1.by.name("dialog")).getText()).to.eventually.equal("Atualização sobre o seu pacote " + nome_pedido);
+        yield expect(protractor_1.element(protractor_1.by.name("dialog")).getText()).to.eventually.equal("Seu pacote está na unidade de tratamento em Pernambuco");
+        //await expect(browser.getRoles()).to.equal("dialog");
     }));
 });
