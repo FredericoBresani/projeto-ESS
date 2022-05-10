@@ -1,9 +1,17 @@
 import express = require('express');
 import { json } from 'stream/consumers';
+const jwt = require('jsonwebtoken');
+const SECRET = "%3sut&*asd23%$";
+const usuarios = [{nick:"wilson", senha:"123", role:"admin"},
+                  {nick:"pedro", senha:"123", role:"client"},
+                  {nick:"fred", senha:"123456", role:"client"}
+                ]
+
 
 // classes
 import { Objeto } from '../Common/Objeto';
 import { Pedido } from '../Common/pedido';
+import { Usuario } from '../Common/Usuario'
 
 // services
 import { ObjetoService } from './Objeto/objetoService';
@@ -101,6 +109,33 @@ taserver.delete('/pedidos', function(req: express.Request, res: express.Response
 
 // end Pedidos
 
+//Login
+taserver.post('/login',function(req: express.Request, res: express.Response){ 
+  
+  var userLogin = req.body.nick;  
+  var userSenha = req.body.senha;
+  var user = usuarios.find(x => x.nick === userLogin && x.senha === userSenha)
+  //36.000 = 10 horas
+
+  if(user != null){
+    
+    const token = jwt.sign({role : user.role}, SECRET, {expiresIn: 90} )    
+    const usuario = new Usuario(user.nick, "", true, token, user.role);
+    return res.send(JSON.stringify(usuario)) 
+    
+  }
+  else{
+    const retornoFail = new Usuario("", "", false, "", "");
+    return res.send(JSON.stringify(retornoFail)); 
+  }
+
+})
+
+taserver.post('/logout',function(req: express.Request, res: express.Response){  
+  res.end;
+})
+
+//End Login
 
 //Rastreio
 taserver.get('/rastreamento-pacote', function(req: express.Request, res: express.Response) {
