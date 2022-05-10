@@ -9,7 +9,7 @@ defineSupportCode(function({Given, When, Then}) {
     await browser.get("http://localhost:4200/#/correios/pedidos");
     await expect(browser.getTitle()).to.eventually.equal("Correios");
   })
-  When(/^o pedido é atualizado na página de rotas ao pressionar o botão "Atualizar Caminho"$/, async () => {
+  When(/^o pedido é atualizado na página de rotas ao pressionar o botão Atualizar Caminho$/, async () => {
     await browser.get("http://localhost:4200/#/correios/rota");
     await element(by.name('botaoAtualizar')).click();
   })
