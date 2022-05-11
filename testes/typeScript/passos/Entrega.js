@@ -24,13 +24,17 @@ cucumber_1.defineSupportCode(function ({ Given, When, Then }) {
         yield protractor_1.browser.get("http://localhost:4200/#/correios/entrega");
         yield expect(protractor_1.browser.getTitle()).to.eventually.equal("Correios");
     }));
-    Given(/^Adiciono os produtos a entrega$/, () => __awaiter(this, void 0, void 0, function* () {
+    When(/^Adiciono os produtos a entrega$/, () => __awaiter(this, void 0, void 0, function* () {
         yield expect(protractor_1.browser.getTitle()).to.eventually.equal("Correios");
         yield protractor_1.$("button[name='adicionar']").click();
         yield protractor_1.$("button[name='adicionar']").click();
         yield protractor_1.$("button[name='adicionar']").click();
     }));
-    Given(/^Remove um produto da entrega$/, () => __awaiter(this, void 0, void 0, function* () {
+    When(/^Remove um produto da entrega$/, () => __awaiter(this, void 0, void 0, function* () {
+        yield expect(protractor_1.browser.getTitle()).to.eventually.equal("Correios");
+        yield protractor_1.$("button[name='remover']").click();
+    }));
+    Given(/^Given Fecha a entrega$/, () => __awaiter(this, void 0, void 0, function* () {
         yield expect(protractor_1.browser.getTitle()).to.eventually.equal("Correios");
         yield protractor_1.$("button[name='remover']").click();
     }));

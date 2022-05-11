@@ -160,7 +160,7 @@ taserver.post('/login',function(req: express.Request, res: express.Response){
 
   if(user != null){
     
-    const token = jwt.sign({role : user.role}, SECRET, {expiresIn: 90} )    
+    const token = jwt.sign({role : user.role}, SECRET, {expiresIn: 300} )    
     const usuario = new Usuario(user.nick, "", true, token, user.role);
     return res.send(JSON.stringify(usuario)) 
     
