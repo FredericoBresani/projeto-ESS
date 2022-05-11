@@ -10,7 +10,7 @@ import { DialogData } from 'src/app/shared/models/dialog-data.model';
 })
 export class NotificacoesComponent implements OnInit {
 
-  public dialogData: DialogData={pedido: 'Macbook p/ Monitor', estado: 'Pernambuco'};  
+  public dialogData: DialogData={pedido: 'Macbook para Monitor', estado: 'Pernambuco'};  
 
   constructor(public dialog: MatDialog) { }
 

@@ -8,7 +8,9 @@
       <div *ngIf="pos!=pedido.estado_atual[pedido.estado_atual.length-1]">{{pos}} -></div>
     </div>
 
+
     <button *ngIf="pedido.estado_atual[pedido.estado_atual.length-1]!=pedido.endereco_entrega" (click)="atualizarCaminhoPedido(pedido)" name="botaoAtualizar" >Atualizar Caminho</button>
+
     <br>
   </div>
 
