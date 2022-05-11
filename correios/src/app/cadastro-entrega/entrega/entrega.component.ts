@@ -17,12 +17,13 @@ export class EntregaComponent implements OnInit {
   objetoEmpacotado: Objeto[] = [];
 
    
-  refreshAllget(){
-    this.entregaRequest.getOBjetosAbertos().subscribe((objetos) => {
+  async refreshAllget(){
+    console.log("refresh");
+   await this.entregaRequest.getOBjetosAbertos().subscribe((objetos) => {
       this.objetoAberto = objetos;
    });
 
-   this.entregaRequest.getOBjetosEmpacotados().subscribe((objetos) =>{
+    await  this.entregaRequest.getOBjetosEmpacotados().subscribe((objetos) =>{
     this.objetoEmpacotado = objetos;
    });
 
@@ -48,6 +49,12 @@ export class EntregaComponent implements OnInit {
     this.entregaRequest.abrirObjetos(codigo);
     this.refreshAllget();
   }
+
+  fecharEntrega(){
+    this.entregaRequest.fecharentrega();
+    this.refreshAllget();
+  }
+
 
 
 

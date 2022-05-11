@@ -31,6 +31,9 @@ export class Service<T>{
       return axios.post(`${environment.API_URL}/${endPoint}`,body);
   }
 
+  postSemObj<T>(endPoint: string): void {
+    return axios.post(`${environment.API_URL}/${endPoint}`);
+  }
   put<T>(endPoint: string, body: T): Observable<T> {
     return this.httpClient.put<T>(`${environment.API_URL}/${endPoint}`, body);
   }

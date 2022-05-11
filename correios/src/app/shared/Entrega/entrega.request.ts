@@ -31,8 +31,12 @@ export class EntregaRequest {
   }
 
   abrirObjetos(codigo : string):void{
-    //this.objetoService.post<Objeto>(this.endPoint+"/Aberto",{ codigo : codigo});
+    var  objeto : Objeto = new Objeto(codigo,"ABERTO");
+    this.objetoService.post<Objeto>(this.endPoint+"/Aberto",objeto);
   }
 
+  fecharentrega():void{ 
+    this.objetoService.postSemObj<Objeto>(this.endPoint+"/fecharEntrega");
+  }
 
 }

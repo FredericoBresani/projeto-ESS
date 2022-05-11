@@ -1,9 +1,9 @@
 
 <div class="row">
-  <div class="col-md-1"></div>
+  <div class="col-md-3"></div>
   <div class="col-md-3">
     <h4>Objetos</h4>
-    <table class="table table-hover">
+    <table  class="table table-hover">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -14,17 +14,16 @@
       <tbody>
         <tr *ngFor="let item of objetoAberto">
           <td>{{item.codigo}}</td>
-          <td><button style="width: 50px ;" (click) = "adicionarObjetoEntrega(item.codigo)">+</button></td>
+          <td><button name="adicionar"  style="width: 50px ;" (click) = "adicionarObjetoEntrega(item.codigo)">+</button></td>
         </tr>
       </tbody>
     </table>
    </div>
-  <div class="col-md-5">
+  <div class="col-md-3">
     <h4>Entrega</h4>
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Codigo</th>
           <th scope="col">Remover</th>
         </tr>
@@ -32,46 +31,17 @@
       <tbody>
         <tr *ngFor="let item of objetoEmpacotado">
           <td>{{item.codigo}}</td>
-          <td><button style="width: 50px ;" (click) = "removerOBjetoEmpacotamento(item.codigo)">-</button></td>
+          <td><button name="remover"  style="width: 50px ;" (click) = "removerOBjetoEmpacotamento(item.codigo)">-</button></td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-
-
-<div class="row">
-  <div>
-    
-  </div>
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+<div class=" row mt-5" >
+  <div class="col-md-5"></div>
+  <div class="col-md-6"><button name="fecharEntrega" class="btn btn-primary mt-50" (click)="fecharEntrega()">Fechar entrega</button></div>
+  <div class="col-md-5"></div>
 </div>
+
+
+
