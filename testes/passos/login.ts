@@ -35,8 +35,7 @@ defineSupportCode(function({Given, When, Then}) {
         await $("button[name='submit']").click();
     })
 
-    Then(/^informações do login estão erradas$/, async () => {
-        await browser.get("http://localhost:4200/#/correios");
+    Then(/^informacoes do login estao erradas$/, async () => {        
         await expect(browser.getTitle()).to.eventually.equal("Login");
     })
 })

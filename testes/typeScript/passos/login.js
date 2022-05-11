@@ -37,8 +37,7 @@ cucumber_1.defineSupportCode(function ({ Given, When, Then }) {
         yield protractor_1.$("input[name='senha']").sendKeys(senha);
         yield protractor_1.$("button[name='submit']").click();
     }));
-    Then(/^informações do login estão erradas$/, () => __awaiter(this, void 0, void 0, function* () {
-        yield protractor_1.browser.get("http://localhost:4200/#/correios");
+    Then(/^informacoes do login estao erradas$/, () => __awaiter(this, void 0, void 0, function* () {
         yield expect(protractor_1.browser.getTitle()).to.eventually.equal("Login");
     }));
 });
