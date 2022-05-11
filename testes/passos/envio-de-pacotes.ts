@@ -49,7 +49,7 @@ defineSupportCode(function({Given, When, Then}) {
   When(/^eu me redireciono para a pagina de entregas e clico para remover uma entrega$/, async () => {
     await browser.get("http://localhost:4200/#/correios/envio-de-pacote");
     await expect(browser.getCurrentUrl()).to.eventually.equal("http://localhost:4200/#/correios/envio-de-pacote");
-    await element(by.name('cancelaEntrega')).click();
+    await element(by.name('cancela')).click();
   })
   Then(/^a entrega é devidamente cancelada e eu continuo na mesma página de entregas$/, async () => {
     await expect(browser.getCurrentUrl()).to.eventually.equal("http://localhost:4200/#/correios/envio-de-pacote");
