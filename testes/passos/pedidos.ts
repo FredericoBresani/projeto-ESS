@@ -33,19 +33,18 @@ defineSupportCode(function({Given, When, Then}) {
   When(/^eu preencho todos os campos necessários, considerando nome do pedido como "([^\"]*)" e aperto em confirmar pedido$/, async (nome_pedido) => {
     await $("input[name='numero_cartao']").sendKeys('0568');
     await $("input[name='nome']").sendKeys('fred');
-    await $("input[name='cod_seguranca']").sendKeys(133);
-    await $("input[name='cpf']").sendKeys('512410');
-    await $("input[name='cep']").sendKeys('65412');
     await $("input[name='nome_pedido']").sendKeys(<string> nome_pedido);
+    await $("input[name='cpf']").sendKeys('512410');
+    await $("input[name='cod_seguranca']").sendKeys(133);
+    await $("input[name='cep']").sendKeys('65412');
     await $("input[name='peso']").sendKeys(10);
     await $("input[name='endereco']").sendKeys('Rua fred');
-    await $("select[name='opcoes']").sendKeys('Entrega Rapida');
+    await $("select[name='opcoes']").sendKeys('rapida');
     await element(by.name('submit')).click();
   })
 
-  Then(/^o pedido é devidamente cadastrado com nome "fred - pedido" e a aplicação é redirecionada para a página de pedidos$/, async () => {
-    await browser.get("http://localhost:4200/#/correios/pedidos");
-    await expect(browser.getTitle()).to.eventually.equal("Correios");
+  Then(/^o pedido é devidamente cadastrado com nome "([^\"]*)" e a aplicação é redirecionada para a página de pedidos$/, async (nome_pedido) => {
+    await expect(browser.getCurrentUrl().then(text => text == 'http://localhost:4200/#/correios/pedidos'));
   })
 
   Given(/^eu efetuo meu login com nome: "([^\"]*)" e senha: "([^\"]*)"$/, async (nome, senha) => {

@@ -38,18 +38,17 @@ cucumber_1.defineSupportCode(function ({ Given, When, Then }) {
     When(/^eu preencho todos os campos necessários, considerando nome do pedido como "([^\"]*)" e aperto em confirmar pedido$/, (nome_pedido) => __awaiter(this, void 0, void 0, function* () {
         yield protractor_1.$("input[name='numero_cartao']").sendKeys('0568');
         yield protractor_1.$("input[name='nome']").sendKeys('fred');
-        yield protractor_1.$("input[name='cod_seguranca']").sendKeys(133);
-        yield protractor_1.$("input[name='cpf']").sendKeys('512410');
-        yield protractor_1.$("input[name='cep']").sendKeys('65412');
         yield protractor_1.$("input[name='nome_pedido']").sendKeys(nome_pedido);
+        yield protractor_1.$("input[name='cpf']").sendKeys('512410');
+        yield protractor_1.$("input[name='cod_seguranca']").sendKeys(133);
+        yield protractor_1.$("input[name='cep']").sendKeys('65412');
         yield protractor_1.$("input[name='peso']").sendKeys(10);
         yield protractor_1.$("input[name='endereco']").sendKeys('Rua fred');
-        yield protractor_1.$("select[name='opcoes']").sendKeys('Entrega Rapida');
+        yield protractor_1.$("select[name='opcoes']").sendKeys('rapida');
         yield protractor_1.element(protractor_1.by.name('submit')).click();
     }));
-    Then(/^o pedido é devidamente cadastrado com nome "fred - pedido" e a aplicação é redirecionada para a página de pedidos$/, () => __awaiter(this, void 0, void 0, function* () {
-        yield protractor_1.browser.get("http://localhost:4200/#/correios/pedidos");
-        yield expect(protractor_1.browser.getTitle()).to.eventually.equal("Correios");
+    Then(/^o pedido é devidamente cadastrado com nome "([^\"]*)" e a aplicação é redirecionada para a página de pedidos$/, (nome_pedido) => __awaiter(this, void 0, void 0, function* () {
+        yield expect(protractor_1.browser.getCurrentUrl().then(text => text == 'http://localhost:4200/#/correios/pedidos'));
     }));
     Given(/^eu efetuo meu login com nome: "([^\"]*)" e senha: "([^\"]*)"$/, (nome, senha) => __awaiter(this, void 0, void 0, function* () {
         yield protractor_1.browser.get("http://localhost:4200/");
