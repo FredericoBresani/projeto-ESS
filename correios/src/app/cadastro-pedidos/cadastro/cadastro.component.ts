@@ -90,7 +90,7 @@ export class CadastroComponent implements OnInit {
       cod_seguranca: [0, [Validators.min(100), Validators.max(999)]],
       cep: ['', Validators.required],
       peso_produto: [0, Validators.min(1)],
-      data_envio: [,Validators.required],
+      data_envio: [,],
       Data_formatada: [,],
       tempo_entrega: [,],
       endereco_entrega: ['', Validators.required],

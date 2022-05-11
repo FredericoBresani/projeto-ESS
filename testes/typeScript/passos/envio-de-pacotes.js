@@ -53,7 +53,7 @@ cucumber_1.defineSupportCode(function ({ Given, When, Then }) {
     When(/^eu me redireciono para a pagina de entregas e clico para remover uma entrega$/, () => __awaiter(this, void 0, void 0, function* () {
         yield protractor_1.browser.get("http://localhost:4200/#/correios/envio-de-pacote");
         yield expect(protractor_1.browser.getCurrentUrl()).to.eventually.equal("http://localhost:4200/#/correios/envio-de-pacote");
-        yield protractor_1.element(protractor_1.by.name('cancelaEntrega')).click();
+        yield protractor_1.element(protractor_1.by.name('cancela')).click();
     }));
     Then(/^a entrega é devidamente cancelada e eu continuo na mesma página de entregas$/, () => __awaiter(this, void 0, void 0, function* () {
         yield expect(protractor_1.browser.getCurrentUrl()).to.eventually.equal("http://localhost:4200/#/correios/envio-de-pacote");

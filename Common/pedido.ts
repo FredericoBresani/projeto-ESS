@@ -15,7 +15,7 @@ export interface Pedido {
 
   endereco_entrega: string;
 
-  data_envio: Date;
+  data_envio?: Date;
 
   Data_formatada?: Date;
 
