@@ -53,43 +53,35 @@ taserver.post('/Objeto',function(req: express.Request, res: express.Response){
 
 
 taserver.post('/Objeto/Empacotar',function(req: express.Request, res: express.Response){ 
-  console.log("123"); 
   var  codigo = req.body.codigo;  
-  // var retornoApi :RetornoApi;
-  
-  // retornoApi.Status = "SUCESSO";
-  // retornoApi.Status = "OBj Empacotado";
-
   var obj =  objetoService.trocarStatus(codigo,"EMPACOTANDO");
   res.send(JSON.stringify(obj));
     
 })
 
-
-
 taserver.post('/Objeto/Aberto',function(req: express.Request, res: express.Response){
-  var  codigo = req.body.codigo;  
+  var  codigo = req.body.codigo; 
+  console.log(codigo);
   objetoService.trocarStatus(codigo,"ABERTO");
   res.send({ "mensagem": "Obj Empacotado." });
 })
 
+taserver.post('/Objeto/fecharEntrega',function(req: express.Request, res: express.Response){
+  objetoService.fecharEntrega();
+  res.send({ "mensagem": "Entrega criada com sucesso." });
+})
+
 
 taserver.get('/Objeto/Empacotado',function(req: express.Request, res: express.Response){ 
-  // var retornoApi :RetornoApi; 
-  // retornoApi.Status = "SUCESSO";  
-  // retornoApi.Conteudo = objetoService.buscarEmpacotados();
-  
   res.send(JSON.stringify(objetoService.buscarEmpacotados()));
 })
 
 
 
 taserver.get('/Objeto/Aberto',function(req: express.Request, res: express.Response){
-  // var retornoApi :RetornoApi; 
-  // retornoApi.Status = "SUCESSO";  
-  // retornoApi.Conteudo = objetoService.buscarAbertos(); 
   res.send(JSON.stringify(objetoService.buscarAbertos()));
 })
+
 
 
 

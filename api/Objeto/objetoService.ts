@@ -22,12 +22,19 @@ export class ObjetoService{
     }
 
     trocarStatus(codigo : string,status:string):Objeto{
-      console.log("chegou status");
       var obj = this.buscarTodos().filter(el => el.codigo === codigo)[0];
       this.objetoRepositorio.banco = this.objetoRepositorio.banco.filter(el => el.codigo != codigo);
-      obj.status = "EMPACOTANDO";
+      obj.status = status;
       this.objetoRepositorio.adicionar(obj);
       return obj;
+    }
+
+    fecharEntrega():void{    
+     this.objetoRepositorio.banco.forEach(item => {
+       if(item.status == "EMPACOTANDO"){
+         item.status = "FINALIZADO"
+       }
+      })
     }
 
 }
