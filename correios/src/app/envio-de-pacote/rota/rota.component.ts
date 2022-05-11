@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Pedido } from 'src/app/shared/models/pedido.model';
+import { Pedido } from '../../../../../Common/pedido';
 import { MatDialog } from '@angular/material/dialog';
 import {DialogComponent} from '../../notificacao/dialog/dialog.component';
 import { DialogData } from 'src/app/shared/models/dialog-data.model';
 import { CadastroPedidosService } from 'src/app/cadastro-pedidos/cadastro-pedidos.service';
+import { EnvioDePacotesService } from '../envio-de-pacotes.service';
 
 @Component({
   selector: 'app-rota',
@@ -21,17 +22,17 @@ export class RotaComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private readonly cadastroPedidosService: CadastroPedidosService,
+    private readonly envioDePacotesService: EnvioDePacotesService
   ) { }
 
   ngOnInit(): void {
-    this.cadastroPedidosService.getPedidos().subscribe((pedidos) => {
+    this.envioDePacotesService.getPedidos().subscribe((pedidos) => {
       this.pedidos = pedidos;
     })
   }
 
   cancelarPedido(pedido: Pedido): void {
-    this.cadastroPedidosService.cancelarPedido(pedido).subscribe((pedidos) => {
+    this.envioDePacotesService.cancelarPedido(pedido).subscribe((pedidos) => {
       this.pedidos = pedidos;
     })
   }
@@ -58,7 +59,7 @@ export class RotaComponent implements OnInit {
           data: this.dialogData});
       }
     }//SO VAI PRECISAR enviar pedido no paramentro
-    this.cadastroPedidosService.atualizarPedido(pedido).subscribe((pedidos) => {
+    this.envioDePacotesService.atualizarPedido(pedido).subscribe((pedidos) => {
       this.pedido = pedidos;
     })
   }
