@@ -2,12 +2,12 @@ import request = require("request-promise");
 import { closeServer } from '../server';
 import { PedidoService } from '../cadastro-pedidos/pedido.service';
 import { environment } from '../../correios/src/environments/environment';
-import { LoginService } from "../../correios/src/app/login/login.service";
+
 
 const endPoint = environment.API_URL;
 
 describe("O Login", () => {
-  var cadastroPedido: PedidoService;
+  
 
   var server: any;
 
@@ -16,8 +16,6 @@ describe("O Login", () => {
   });
 
   afterAll(() => {server.closeServer()});
-
-  beforeEach(() => cadastroPedido = new PedidoService())
 
   it("Login correto", () =>{
     var requestLogin:any = {
@@ -51,7 +49,5 @@ describe("O Login", () => {
     }    
     return request(requestLogin).then(body => expect(body.token).toEqual(""));
   })
-
   
-
 })
