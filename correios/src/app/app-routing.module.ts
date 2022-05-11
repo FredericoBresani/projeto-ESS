@@ -25,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'correios/cadastrar-pedido',
-    canActivate: [AuthGuardClient],
+    canActivate: [AuthGuard a],
     component: CadastroComponent,
 
   },{
