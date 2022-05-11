@@ -9,5 +9,5 @@ Scenario: Login Correto
 
 Scenario: Dados de Login errados
     Given estou na tela para fazer login
-    When preencho os campos de com nome: "julio" e senha: "12as3"    
-    Then informações do login estão erradas
+    When preencho os campos de com nome: "julio" e senha: "12as3"
+    Then informacoes do login estao erradas
